@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://imouyo.github.io/2026/02/11/MyBatis/</loc>
+    <loc>https://imouyo.github.io/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2026-02-11</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://imouyo.github.io/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://imouyo.github.io/2026/02/11/MyBatis/</loc>
     
     <lastmod>2026-02-11</lastmod>
     
@@ -74,6 +74,13 @@
 
   
   <url>
+    <loc>https://imouyo.github.io/tags/MyBatis/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://imouyo.github.io/tags/MySQL/</loc>
     <lastmod>2026-02-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -90,6 +97,13 @@
 
   
   <url>
+    <loc>https://imouyo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://imouyo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2026-02-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -98,6 +112,13 @@
   
   <url>
     <loc>https://imouyo.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://imouyo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2026-02-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
