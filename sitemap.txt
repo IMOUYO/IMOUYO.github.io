@@ -7,8 +7,8 @@ https://imouyo.github.io/categories/index.html
 https://imouyo.github.io/2026/02/11/hello-world/
 https://imouyo.github.io/
 https://imouyo.github.io/tags/MyBatis/
-https://imouyo.github.io/tags/java/
 https://imouyo.github.io/tags/MySQL/
+https://imouyo.github.io/tags/java/
 https://imouyo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/
 https://imouyo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://imouyo.github.io/categories/%E6%8A%80%E6%9C%AF/
