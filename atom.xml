@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>John Doe</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://imouyo.github.io/</id>
+  <link href="https://imouyo.github.io/" rel="alternate"/>
+  <link href="https://imouyo.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, John Doe</rights>
+  <title>Hexo</title>
+  <updated>2026-02-11T10:18:26.763Z</updated>
+  <entry>
+    <author>
+      <name>John Doe</name>
+    </author>
+    <category term="技术" scheme="https://imouyo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="前端" scheme="https://imouyo.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/"/>
+    <category term="java" scheme="https://imouyo.github.io/tags/java/"/>
+    <id>https://imouyo.github.io/2026/02/11/demo/</id>
+    <link href="https://imouyo.github.io/2026/02/11/demo/"/>
+    <published>2026-02-11T10:06:19.000Z</published>
+    <title>demo</title>
+    <updated>2026-02-11T10:18:26.763Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>John Doe</name>
+    </author>
+    <category term="技术" scheme="https://imouyo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="前端" scheme="https://imouyo.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/"/>
+    <content>
+      <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2><h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]>
+    </content>
+    <id>https://imouyo.github.io/2026/02/11/hello-world/</id>
+    <link href="https://imouyo.github.io/2026/02/11/hello-world/"/>
+    <published>2026-02-11T03:03:04.465Z</published>
+    <summary>
+      <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for]]>
+    </summary>
+    <title>Hello World</title>
+    <updated>2026-02-11T10:14:26.403Z</updated>
+  </entry>
+</feed>
