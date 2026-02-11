@@ -164,6 +164,123 @@
   <div class="slimContent">
     
       
+<div>
+  <h3 id="catalog"></h3>
+  <div id="toc"></div>
+</div>
+
+<script>
+(function() {
+  // ===== 生成目录 =====
+  function buildToc() {
+    // var article = document.querySelector('.post-content, .article-content, main');
+    var article = document.querySelector('article.thisIsAAnchor');
+    if (!article) return;
+    
+    document.getElementById('catalog').innerHTML = '目录';
+    var headings = article.querySelectorAll('h1, h2, h3, h4');
+    if (headings.length === 0) {
+      document.getElementById('toc').innerHTML = '<p>无标题</p>';
+      return;
+    }
+    
+    var toc = document.getElementById('toc');
+    var ul = document.createElement('ul');
+    
+    headings.forEach(function(heading, index) {
+      // 生成唯一ID
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      a.style.marginLeft = (parseInt(heading.tagName[1]) - 1) * 12 + 'px';
+      a.style.display = 'inline-block';
+      
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    
+    toc.innerHTML = '';
+    toc.appendChild(ul);
+    return headings;
+  }
+  
+  // ===== 绑定点击事件 =====
+  function bindClick() {
+    document.getElementById('toc').addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (link) {
+        e.preventDefault();
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          history.pushState(null, null, link.getAttribute('href'));
+        }
+      }
+    });
+  }
+  
+  // ===== 滚动高亮 =====
+  function highlightActive() {
+  var tocLinks = document.querySelectorAll('#toc a');
+  if (tocLinks.length === 0) return;
+  
+  // 默认高亮第一个
+  tocLinks[0].style.fontWeight = 'bold';
+  tocLinks[0].style.color = '#0066cc';
+  tocLinks[0].style.borderLeft = '3px solid #0066cc';
+  tocLinks[0].style.paddingLeft = '8px';
+  
+  // 为每个目录链接添加点击事件
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // 移除所有链接的高亮样式
+      tocLinks.forEach(function(l) {
+        l.style.fontWeight = 'normal';
+        l.style.color = '';
+        l.style.borderLeft = '';
+        l.style.paddingLeft = '';
+      });
+      
+      // 为当前点击的链接添加高亮样式
+      this.style.fontWeight = 'bold';
+      this.style.color = '#0066cc';
+      this.style.borderLeft = '3px solid #0066cc';
+      this.style.paddingLeft = '8px';
+    });
+  });
+}
+  
+  // ===== 初始化 =====
+  function init() {
+    buildToc();
+    bindClick();
+    highlightActive();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<style>
+/* 极简样式，可删除 */
+#toc ul { list-style: none; padding-left: 0; }
+#toc li { margin: 5px 0; }
+#toc a { text-decoration: none; color: #333; }
+#toc a:hover { color: #0066cc; }
+</style>
+
     
       <div class="widget">
     <h3 class="widget-title">Board</h3>
@@ -226,10 +343,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/">数据库查询</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
               </p>
               <p class="item-title">
-                <a href="/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/" class="title">MySQL学习</a>
+                <a href="/2026/02/11/MyBatis/" class="title">MyBatis学习</a>
               </p>
               <p class="item-date">
                 <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
@@ -241,10 +358,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/">数据库查询</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
               </p>
               <p class="item-title">
-                <a href="/2026/02/11/MyBatis/" class="title">MyBatis学习</a>
+                <a href="/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/" class="title">MySQL学习</a>
               </p>
               <p class="item-date">
                 <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
@@ -301,11 +418,11 @@
         <ul>
           <li><a href="/tags">All</a></li>
           
-          <li><a href="/tags/MySQL/">MySQL</a></li>
+          <li><a href="/tags/MyBatis/">MyBatis</a></li>
           
           <li><a href="/tags/java/">java</a></li>
           
-          <li><a href="/tags/MyBatis/">MyBatis</a></li>
+          <li><a href="/tags/MySQL/">MySQL</a></li>
           
         </ul>
       </nav>
@@ -314,7 +431,7 @@
     <div class="article-body">
       
       <h3 class="panel-title mb-1x">
-        <a href="/tags/MySQL/" title="#MySQL"># MySQL</a>
+        <a href="/tags/MyBatis/" title="#MyBatis"># MyBatis</a>
         <small class="text-muted">(Total 1 articles)</small>
       </h3>
       <div class="row">
@@ -327,13 +444,13 @@
        <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
      </div>
      <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/">MySQL学习</a>
+       <a class="article-link" href="/2026/02/11/MyBatis/">MyBatis学习</a>
      </h3>
    </div>
    
    <div class="panel-footer">
      
-      <a href="/tags/MySQL/" class="label label-default mb">MySQL</a>
+      <a href="/tags/MyBatis/" class="label label-default mb">MyBatis</a>
      
      
    </div>
@@ -378,7 +495,7 @@
       </div>
       
       <h3 class="panel-title mb-1x">
-        <a href="/tags/MyBatis/" title="#MyBatis"># MyBatis</a>
+        <a href="/tags/MySQL/" title="#MySQL"># MySQL</a>
         <small class="text-muted">(Total 1 articles)</small>
       </h3>
       <div class="row">
@@ -391,13 +508,13 @@
        <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
      </div>
      <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/2026/02/11/MyBatis/">MyBatis学习</a>
+       <a class="article-link" href="/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/">MySQL学习</a>
      </h3>
    </div>
    
    <div class="panel-footer">
      
-      <a href="/tags/MyBatis/" class="label label-default mb">MyBatis</a>
+      <a href="/tags/MySQL/" class="label label-default mb">MySQL</a>
      
      
    </div>
