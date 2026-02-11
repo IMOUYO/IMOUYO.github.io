@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>MySQL学习 | Hexo</title>
+  <meta name="description" content="MyBatis   准备工作   创建springboot时添加MySQL Driver和MyBatis Framework的依赖   创建需要接受数据的实体类User，类中的属性名必须和字段名一一对应，顺序可以不同实体类放在 com.itheima.pojo 包下。   在 application.properties 中配置数据库的连接信息。  12345678#数据库访问的url地址spr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL学习">
+<meta property="og:url" content="https://imouyo.github.io/2026/02/11/MyBatis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MyBatis   准备工作   创建springboot时添加MySQL Driver和MyBatis Framework的依赖   创建需要接受数据的实体类User，类中的属性名必须和字段名一一对应，顺序可以不同实体类放在 com.itheima.pojo 包下。   在 application.properties 中配置数据库的连接信息。  12345678#数据库访问的url地址spr">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-11T14:27:37.000Z">
+<meta property="article:modified_time" content="2026-02-11T14:34:40.913Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://imouyo.github.io/2026/02/11/MyBatis/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/IMOUYO" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.gif" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">makabaka</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Earth</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/MySQL/" style="font-size: 14px;">MySQL</a> <a href="/tags/java/" style="font-size: 13px;">java</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/11/MyBatis/" class="title">MySQL学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/" class="title">MySQL学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/11/demo/" class="title">demo</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-11T10:06:19.000Z" itemprop="datePublished">2026-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/11/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-11T03:03:04.465Z" itemprop="datePublished">2026-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-MyBatis" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL学习
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2026/02/11/MyBatis/" class="article-date">
+	  <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/MySQL/" rel="tag">MySQL</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/11/MyBatis/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="mybatis"><a class="markdownIt-Anchor" href="#mybatis"></a> MyBatis</h2>
+<hr />
+<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
+<ol>
+<li>
+<p>创建springboot时添加MySQL Driver和MyBatis Framework的依赖</p>
+</li>
+<li>
+<p>创建需要接受数据的实体类User，类中的属性名必须和字段名一一对应，顺序可以不同实体类放在 <code>com.itheima.pojo</code> 包下。</p>
+</li>
+<li>
+<p>在 <code>application.properties</code> 中配置数据库的连接信息。</p>
+ <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据库访问的url地址</span></span><br><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/web</span></span><br><span class="line"><span class="comment">#数据库驱动类类名</span></span><br><span class="line"><span class="attr">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="comment">#访问数据库-用户名</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="comment">#访问数据库-密码</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">root@1234</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>编写Mybatis程序：编写Mybatis的持久层接口，定义SQL语句（注解）</strong></p>
+<p>在创建出来的springboot工程中，在引导类所在包下，在创建一个包 <code>mapper</code> 。在 <code>mapper</code> 包下创建一个接口 <code>UserMapper</code> ，这是一个持久层接口（Mybatis的持久层接口规范一般都叫 XxxMapper）。</p>
+<p>UserMapper接口的内容如下：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.itheima.pojo.User;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Select;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询全部</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select(&quot;select * from user&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;User&gt; <span class="title function_">findAll</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注解说明：</strong></p>
+<ul>
+<li>@Mapper注解：表示是mybatis中的Mapper接口</li>
+</ul>
+<p>程序运行时，框架会自动生成接口的实现类对象(代理对象)，并给交Spring的IOC容器管理</p>
+<ul>
+<li>@Select注解：代表的就是select查询，用于书写select查询语句</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="删除"><a class="markdownIt-Anchor" href="#删除"></a> 删除</h3>
+<ul>
+<li>
+<p>求：根据ID删除用户信息</p>
+</li>
+<li>
+<p>SQL：delete from user where id = 5;</p>
+</li>
+<li>
+<p>Mapper接口方法：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据id删除</span></span><br><span class="line"><span class="comment"> * 在Mybatis中，我们可以通过参数占位符号 #&#123;...&#125; 来占位，在调用deleteById方法时，传递的参数值，最终会替换占位符。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Delete(&quot;delete from user where id = #&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteById</span><span class="params">(Integer id)</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Mybatis的提供的符号，有两个，一个是 <code>#{...}</code>，另一个是 <code>${...}</code>，区别如下：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">符号</th>
+<th>说明</th>
+<th>场景</th>
+<th>优缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">#{…}</td>
+<td>占位符。执行时，会将#{…}替换为?，生成预编译SQL</td>
+<td>参数值传递</td>
+<td>安全、性能高 （推荐）</td>
+</tr>
+<tr>
+<td style="text-align:left">${…}</td>
+<td>拼接符。直接将参数拼接在SQL语句中，存在SQL注入问题</td>
+<td>表名、字段名动态设置时使用</td>
+<td>不安全、性能低</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="添加"><a class="markdownIt-Anchor" href="#添加"></a> 添加</h3>
+<ul>
+<li>需求：添加一个用户</li>
+<li>SQL：insert into user(username,password,name,age) values(‘zhouyu’,‘123456’,‘周瑜’,20);</li>
+<li>Mapper接口：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 添加用户</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Insert(&quot;insert into user (username,password,name,age) values (#&#123;username&#125;,#&#123;password&#125;,#&#123;name&#125;,#&#123;age&#125;)&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(User user)</span>;</span><br></pre></td></tr></table></figure>
+<p>如果在SQL语句中，我们需要传递多个参数，我们可以把多个参数封装到一个对象中，只需要该对象中的属性值包括这几个参数就可以。然后在SQL语句中，我们可以通过<code>#{对象``属性``名}</code>的方式，获取到对象中封装的属性值。</p>
+<hr />
+<h3 id="修改"><a class="markdownIt-Anchor" href="#修改"></a> 修改</h3>
+<ul>
+<li>需求：根据ID更新用户信息</li>
+<li>SQL：update user set username = ‘zhouyu’, password = ‘123456’, name = ‘周瑜’, age = 20 where id = 1；</li>
+<li>Mapper接口方法：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据id更新用户信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Update(&quot;update user set username = #&#123;username&#125;,password = #&#123;password&#125;,name = #&#123;name&#125;,age = #&#123;age&#125; where id = #&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(User user)</span>;</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="查询"><a class="markdownIt-Anchor" href="#查询"></a> 查询</h3>
+<ul>
+<li>需求：根据用户名和密码查询用户信息</li>
+<li>SQL：select* fromuser whereusername = ‘zhouyu’ and password = ‘123456’</li>
+<li>Mapper接口方法：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据用户名和密码查询用户信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Select(&quot;select * from user where username = #&#123;username&#125; and password = #&#123;password&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> User <span class="title function_">findByUsernameAndPassword</span><span class="params">(<span class="meta">@Param(&quot;username&quot;)</span> String username, <span class="meta">@Param(&quot;password&quot;)</span> String password)</span>;</span><br></pre></td></tr></table></figure>
+<p>@param注解的作用是为接口的方法形参起名字的。（由于用户名唯一的，所以查询返回的结果最多只有一个，可以直接封装到一个对象中）</p>
+<hr />
+<h3 id="xml映射配置"><a class="markdownIt-Anchor" href="#xml映射配置"></a> XML映射配置</h3>
+<p>Mybatis的开发有两种方式：</p>
+<ol>
+<li>注解</li>
+<li>XML</li>
+</ol>
+<h4 id="xml配置文件规范"><a class="markdownIt-Anchor" href="#xml配置文件规范"></a> XML配置文件规范</h4>
+<p>使用Mybatis的注解方式，主要是来完成一些简单的增删改查功能。如果需要实现复杂的SQL功能，建议使用XML来配置映射语句，也就是将SQL语句写在XML配置文件中。</p>
+<p><strong>在Mybatis中使用XML映射文件方式开发，需要符合一定的规范：</strong></p>
+<ol>
+<li>XML映射文件的名称与Mapper接口名称一致，并且将XML映射文件和Mapper接口放置在相同包下（同包同名）</li>
+<li>XML映射文件的namespace属性为Mapper接口全限定名一致</li>
+<li>XML映射文件中sql语句的id与Mapper接口中的方法名一致，并保持返回类型一致。</li>
+</ol>
+<p><strong>第1步： 创建XML映射文件</strong></p>
+<p>参考上边三点创建</p>
+<p><strong>第2步：编写XML映射文件</strong></p>
+<blockquote>
+<p>xml映射文件中的dtd约束，直接从mybatis官网复制即可; 或者直接AI生成。</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span></span></span><br><span class="line"><span class="meta">  <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">  <span class="string">&quot;https://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>第3步：配置</strong></p>
+<p><strong>a. XML映射文件的namespace属性为Mapper接口全限定名</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="string">&quot;https://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.itheima.mapper.UserMapper&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>b. XML映射文件中sql语句的id与Mapper接口中的方法名一致，并保持返回类型一致</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="string">&quot;https://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.itheima.mapper.EmpMapper&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--查询操作--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findAll&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.itheima.pojo.User&quot;</span>&gt;</span></span><br><span class="line">        select * from user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>resultType 属性的值，与查询返回的单条记录封装的类型一致。</p>
+<h4 id="xml映射文件辅助配置"><a class="markdownIt-Anchor" href="#xml映射文件辅助配置"></a> XML映射文件辅助配置</h4>
+<p>可以在application.properties中配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#指定XML映射配置文件的位置</span><br><span class="line">mybatis.mapper-locations=classpath:mapper/*.xml</span><br></pre></td></tr></table></figure>
+<p>可以不遵循同包这一限制条件</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <!-- 
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="" title="" target="_blank" rel="external"></a>
+    </li>
+     -->
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/IMOUYO" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.gif" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/IMOUYO" target="_blank"><span class="text-dark">makabaka</span><small class="ml-1x"></small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/" title="MySQL学习"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23li41op8ra6ULwVKH',
+    clientSecret: '8637d8e4da9dee4d4ab44fff1c11f554fe5251f7',
+    repo: 'gitalk-comments',
+    owner: 'IMOUYO',
+    admin: ['IMOUYO'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true'
+  })
+  gitalk.render('comments')
+  </script>
+      
+
+
+
+
+
+
+
+</body>
+</html>
