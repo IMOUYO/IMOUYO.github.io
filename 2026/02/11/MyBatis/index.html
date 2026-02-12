@@ -26,9 +26,9 @@
 <meta property="og:description" content="MyBatis   准备工作   创建springboot时添加MySQL Driver和MyBatis Framework的依赖   创建需要接受数据的实体类User，类中的属性名必须和字段名一一对应，顺序可以不同实体类放在 com.itheima.pojo 包下。   在 application.properties 中配置数据库的连接信息。  12345678#数据库访问的url地址spr">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-02-11T14:27:37.000Z">
-<meta property="article:modified_time" content="2026-02-11T15:27:07.377Z">
+<meta property="article:modified_time" content="2026-02-12T06:24:03.182Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="MyBatis">
+<meta property="article:tag" content="数据库查询">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://imouyo.github.io/2026/02/11/MyBatis/index.html">
@@ -290,7 +290,7 @@
     <div class="widget-body">
         <div id="board">
             <div class="content">
-                <p>欢迎交流与分享经验!</p>
+                <p>欢迎交流与分享经验!联系我wangyimail20230608@163.com</p>
             </div>
         </div>
     </div>
@@ -301,7 +301,7 @@
   <div class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/">数据库查询</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -311,7 +311,7 @@
   <div class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" rel="tag">数据库查询</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -321,7 +321,7 @@
   <div class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/MyBatis/" style="font-size: 13px;">MyBatis</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/java/" style="font-size: 13px;">java</a>
+      <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" style="font-size: 13px;">数据库查询</a>
     </div>
   </div>
 
@@ -346,7 +346,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/">数据库查询</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
               </p>
               <p class="item-title">
                 <a href="/2026/02/11/MyBatis/" class="title">MyBatis学习</a>
@@ -437,13 +437,13 @@
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/">数据库查询</a>►<a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/MyBatis/" rel="tag">MyBatis</a>
+	<a class="article-tag-link-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" rel="tag">数据库查询</a>
   </span>
 
 
