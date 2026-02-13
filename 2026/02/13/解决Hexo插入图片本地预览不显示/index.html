@@ -21,25 +21,27 @@
   <meta name="description" content="需要的工具Typora，VScode(记事本也可以) 配置环境：hexo: 8.1.1，hexo-cli: 4.3.2，node: 20.19.5，os: win32 10.0.19045 undefined  前言 在使用Hexo编写博客时，会遇到插入图片要么本地端可以预览可以，但上传到github端，就无法显示，或者是反过来的情况，这令人非常难受。Hexo官方提供了两种存储图片的策略，分别是使">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Hexo插入图片本地预览不显示">
-<meta property="og:url" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:url" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="需要的工具Typora，VScode(记事本也可以) 配置环境：hexo: 8.1.1，hexo-cli: 4.3.2，node: 20.19.5，os: win32 10.0.19045 undefined  前言 在使用Hexo编写博客时，会遇到插入图片要么本地端可以预览可以，但上传到github端，就无法显示，或者是反过来的情况，这令人非常难受。Hexo官方提供了两种存储图片的策略，分别是使">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213205157781.png">
-<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213214052307.png">
-<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213215009207.png">
-<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213214616353.png">
-<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213212015668.png">
-<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213212213760.png">
-<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213212841806.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213205157781.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213214052307.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213215009207.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213214616353.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213212015668.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213212213760.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213212841806.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213235730583.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260214000017704.jpg">
 <meta property="article:published_time" content="2026-02-13T11:33:32.000Z">
-<meta property="article:modified_time" content="2026-02-13T15:44:20.704Z">
+<meta property="article:modified_time" content="2026-02-13T16:13:08.218Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="issue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213205157781.png">
+<meta name="twitter:image" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213205157781.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/index.html">
+  <link rel="canonical" href="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -372,7 +374,7 @@
                 
               </p>
               <p class="item-title">
-                <a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/" class="title">解决Hexo插入图片本地预览不显示</a>
+                <a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/" class="title">解决Hexo插入图片本地预览不显示</a>
               </p>
               <p class="item-date">
                 <time datetime="2026-02-13T11:33:32.000Z" itemprop="datePublished">2026-02-13</time>
@@ -438,7 +440,7 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-解决Hexo插入图片问题" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-解决Hexo插入图片本地预览不显示" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
@@ -453,7 +455,7 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/" class="article-date">
+	<a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/" class="article-date">
 	  <time datetime="2026-02-13T11:33:32.000Z" itemprop="datePublished">2026-02-13</time>
 	</a>
 </span>
@@ -467,7 +469,7 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
@@ -492,14 +494,14 @@
 <p>​	仅需要考虑这一部分代码即可</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 配置选项</span></span><br><span class="line">  <span class="keyword">const</span> config = &#123;</span><br><span class="line">    <span class="comment">// 需要替换的路径规则</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 该行代码表示要匹配的图片src路径		←---------------看这里</span></span><br><span class="line">        <span class="attr">pattern</span>: <span class="string">&#x27;^&lt;%- page.title %&gt;/&#x27;</span>,           <span class="comment">// 匹配以 images/ 开头的路径</span></span><br><span class="line">        <span class="comment">// 表示要将上面匹配到的路径修改  			←---------------看这里</span></span><br><span class="line">        <span class="attr">replace</span>: <span class="string">&#x27;&#x27;</span>       <span class="comment">//替换为 &#x27;&#x27;			</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">pattern</span>: <span class="string">&#x27;^&lt;%- encodeURIComponent(page.title) %&gt;/&#x27;</span>,   <span class="comment">//解决中文问题</span></span><br><span class="line">        <span class="attr">replace</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 排除外部链接，指是否排除markdown加入的网络图片		←---------------看这里</span></span><br><span class="line">    <span class="attr">excludeExternal</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 是否显示调试信息，指是否在控制台打印报告      ←---------------看这里</span></span><br><span class="line">    <span class="attr">debug</span>: <span class="literal">true</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
 <p>这是上面debug开启的输出，关闭则不会输出结果</p>
-<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213205157781.png" alt="image-20260213205157781" /></p>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213205157781.png" alt="image-20260213205157781" /></p>
 <h3 id="使用全局资源文件夹解决"><a class="markdownIt-Anchor" href="#使用全局资源文件夹解决"></a> 使用全局资源文件夹解决</h3>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders">点我查看官方解释</a></p>
 <h4 id="原理-2"><a class="markdownIt-Anchor" href="#原理-2"></a> 原理</h4>
 <p><code>Hexo</code>每次<code>generate</code>时都会将博客根目录的<code>source</code>和主题目录下的<code>source</code>中的内容都添加生成，比如</p>
-<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213214052307.png" alt="image-20260213214052307" /></p>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213214052307.png" alt="image-20260213214052307" /></p>
 <p>在执行<code>hexo g</code>命令之后这两个文件夹下的内容都会生成到<code>public</code>文件夹中，比如：</p>
-<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213215009207.png" alt="image-20260213215009207" /></p>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213215009207.png" alt="image-20260213215009207" /></p>
 <p>所以我们可以修改代码中的<code>config</code>内的值来达到我们的目的</p>
 <hr />
 <p>! ! ! 注意：如果images文件夹下没有内容，则在public中不会生成该文件夹</p>
@@ -512,7 +514,7 @@
 <h4 id="办法二"><a class="markdownIt-Anchor" href="#办法二"></a> 办法二</h4>
 <p>同样，我们将所有的图片均存储到images文件夹中，那么在markdown中使用相对路径访问图片应该类似写为<code>../images/photo.jpg</code></p>
 <p>但hexo g之后的文章将会变为html存放在public的子文件夹中，比如：</p>
-<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213214616353.png" alt="image-20260213214616353" /></p>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213214616353.png" alt="image-20260213214616353" /></p>
 <p>所以我们要把图片的访问路径修改为…/…/…/…/images/photo.jpg，该路径的意思是，基于上图中的index.html所在的文件夹，逐渐向外查找4层到达public文件夹，然后再查找public文件夹下的images文件夹中的photo.jpg</p>
 <p><strong>代码修改</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">rules</span>: [</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="attr">pattern</span>: <span class="string">&#x27;^images/&#x27;</span>,           <span class="comment">// 匹配以 images/ 开头的路径</span></span><br><span class="line">       <span class="attr">replace</span>: <span class="string">&#x27;../../../../images/&#x27;</span>       <span class="comment">// 替换为 ../../../../images/</span></span><br><span class="line">     &#125;</span><br><span class="line">    &lt;!-- 这一段代码可以直接删除了</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="attr">pattern</span>: <span class="string">&#x27;^&lt;%- encodeURIComponent(page.title) %&gt;/&#x27;</span>,   <span class="comment">//解决中文问题</span></span><br><span class="line">       <span class="attr">replace</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">     &#125; --&gt;     </span><br></pre></td></tr></table></figure>
@@ -523,9 +525,9 @@
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders">点我查看官方解释</a></p>
 <h4 id="原理-3"><a class="markdownIt-Anchor" href="#原理-3"></a> 原理</h4>
 <p>​	在设置博客根目录下<code>_config.yml</code>中<code>post_asset_folder</code>字段设置为<code>true</code>之后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个资源文件夹。 这个资源文件夹将会有与这个文章文件一样的名字。 将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们。	并且在执行<code>hexo g</code>命令后资源文件夹中的内容将会复制到与文章相同的目录下，比如，这是hexo生成前存放文章的目录</p>
-<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213212015668.png" alt="image-20260213212015668" /></p>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213212015668.png" alt="image-20260213212015668" /></p>
 <p>在执行hexo g后这里的文章将会生成到public文件夹中，例如</p>
-<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213212213760.png" alt="image-20260213212213760" /></p>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213212213760.png" alt="image-20260213212213760" /></p>
 <p><strong>可以对比下图上的路径</strong></p>
 <p><strong>我们可以把markdown中图片的相对路径修改一下，使图片指向正确的路径</strong></p>
 <p>1、将博客根目录下<code>_config.yml</code>中<code>post_asset_folder</code>字段设置为<code>true</code></p>
@@ -534,7 +536,7 @@
 <p>3、在<code>当前使用的主题/layout</code>下<code>post.ejs</code>中导入该文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(&#x27;_script/image-fixer&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
 <p>4、找到Typora中的设置–&gt;偏好设置–&gt;图像，按照下图修改，其中3强烈建议勾选，这样会节省你很多时间</p>
-<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/image-20260213212841806.png" alt="image-20260213212841806" /></p>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213212841806.png" alt="image-20260213212841806" /></p>
 <h4 id="优缺点-2"><a class="markdownIt-Anchor" href="#优缺点-2"></a> <strong>优缺点</strong></h4>
 <p>1、<strong>可以使文章与其使用资源分类更明确</strong></p>
 <p>2、<strong>若多篇文章引用同一个图片，则会占据多份存储空间</strong></p>
@@ -542,13 +544,17 @@
 <p>使用全局资源文件夹和文章资源文件夹，各有优劣</p>
 <h3 id="遇到的问题"><a class="markdownIt-Anchor" href="#遇到的问题"></a> 遇到的问题</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、Failed to connect to github.com port 443 after 21085 ms: Could not connect to server	</span><br></pre></td></tr></table></figure>
-<p><strong>采用ssh连接github</strong></p>
-<p>1、打开github看能不能连接上，可以连接上继续下一步</p>
-<p>2、测试ssh是否能通，能通继续下一步</p>
-<p>3、上传的图片太多了，总数据量大，删除点图片</p>
-<p>4、如果还不行，那就的多<code>hexo d</code>几次，估计是网络问题</p>
+<p>​	<strong>我采用的是ssh连接github</strong></p>
+<p>​	1、打开github看能不能连接上，可以连接上继续下一步</p>
+<p>​	2、测试ssh -T git@是否能通，能通继续下一步</p>
+<p>​	3、上传的图片太多了，总数据量大，删除点图片</p>
+<p>​	4、如果还不行，那就的多<code>hexo d</code>几次，估计是网络问题</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、ssh: connect to host github.com port 22[443]: Connection refused</span><br></pre></td></tr></table></figure>
-<p>把<code>steamcommunity</code>关掉</p>
+<p>​	把<code>steamcommunity</code>关掉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、如果修改过markdown内部标题，比如：这里的title</span><br></pre></td></tr></table></figure>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260213235730583.png" alt="image-20260213235730583" /></p>
+<p>​	则需要保证下图所框选的文字需要保持一致，注意：图片有可能不止一张</p>
+<p><img src="%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/image-20260214000017704.jpg" alt="image-20260214000017704" /></p>
 
       
     </div>
@@ -649,7 +655,7 @@
     // 排除外部链接
     excludeExternal: true,
     // 是否显示调试信息
-    debug: false
+    debug: true
   };
   
   // 执行修改

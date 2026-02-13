@@ -123,7 +123,7 @@ sub {
 }
 
 img {
-  border: 0;
+  border: 2px solid black;
 }
 
 svg:not(:root) {
