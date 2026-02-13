@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>解决Hexo插入图片问题 | Hexo</title>
+  <meta name="description" content="遇到的问题 11、Failed to connect to github.com port 443 after 21085 ms: Could not connect to server	 采用ssh连接github 1、打开github看能不能连接上，可以连接上继续下一步 2、测试ssh是否能通，能通继续下一步 3、上传的图片太多了，总数据量大，删除点图片 12、ssh: connect to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决Hexo插入图片问题">
+<meta property="og:url" content="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="遇到的问题 11、Failed to connect to github.com port 443 after 21085 ms: Could not connect to server	 采用ssh连接github 1、打开github看能不能连接上，可以连接上继续下一步 2、测试ssh是否能通，能通继续下一步 3、上传的图片太多了，总数据量大，删除点图片 12、ssh: connect to">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-13T11:33:32.000Z">
+<meta property="article:modified_time" content="2026-02-13T11:48:28.187Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://imouyo.github.io/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/IMOUYO" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.gif" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">makabaka</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Earth</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+<div>
+  <h3 id="catalog"></h3>
+  <div id="toc"></div>
+</div>
+
+<script>
+(function() {
+  // ===== 生成目录 =====
+  function buildToc() {
+    // var article = document.querySelector('.post-content, .article-content, main');
+    var article = document.querySelector('article.thisIsAAnchor');
+    if (!article) return;
+    
+    document.getElementById('catalog').innerHTML = '目录';
+    var headings = article.querySelectorAll('h1, h2, h3, h4');
+    if (headings.length === 0) {
+      document.getElementById('toc').innerHTML = '<p>无标题</p>';
+      return;
+    }
+    
+    var toc = document.getElementById('toc');
+    var ul = document.createElement('ul');
+    
+    headings.forEach(function(heading, index) {
+      // 生成唯一ID
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      a.style.marginLeft = (parseInt(heading.tagName[1]) - 1) * 12 + 'px';
+      a.style.display = 'inline-block';
+      
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    
+    toc.innerHTML = '';
+    toc.appendChild(ul);
+    return headings;
+  }
+  
+  // ===== 绑定点击事件 =====
+  function bindClick() {
+    document.getElementById('toc').addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (link) {
+        e.preventDefault();
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          history.pushState(null, null, link.getAttribute('href'));
+        }
+      }
+    });
+  }
+  
+  // ===== 滚动高亮 =====
+  function highlightActive() {
+  var tocLinks = document.querySelectorAll('#toc a');
+  if (tocLinks.length === 0) return;
+  
+  // 默认高亮第一个
+  tocLinks[0].style.fontWeight = 'bold';
+  tocLinks[0].style.color = '#0066cc';
+  tocLinks[0].style.borderLeft = '3px solid #0066cc';
+  tocLinks[0].style.paddingLeft = '8px';
+  
+  // 为每个目录链接添加点击事件
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // 移除所有链接的高亮样式
+      tocLinks.forEach(function(l) {
+        l.style.fontWeight = 'normal';
+        l.style.color = '';
+        l.style.borderLeft = '';
+        l.style.paddingLeft = '';
+      });
+      
+      // 为当前点击的链接添加高亮样式
+      this.style.fontWeight = 'bold';
+      this.style.color = '#0066cc';
+      this.style.borderLeft = '3px solid #0066cc';
+      this.style.paddingLeft = '8px';
+    });
+  });
+}
+  
+  // ===== 初始化 =====
+  function init() {
+    buildToc();
+    bindClick();
+    highlightActive();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<style>
+/* 极简样式，可删除 */
+#toc ul { list-style: none; padding-left: 0; }
+#toc li { margin: 5px 0; }
+#toc a { text-decoration: none; color: #333; }
+#toc a:hover { color: #0066cc; }
+</style>
+
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!联系我wangyimail20230608@163.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" rel="tag">数据库查询</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" style="font-size: 13px;">数据库查询</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/" class="title">解决Hexo插入图片问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-13T11:33:32.000Z" itemprop="datePublished">2026-02-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/13/AOP/" class="title">AOP</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-13T09:09:03.000Z" itemprop="datePublished">2026-02-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/11/MyBatis/" class="title">MyBatis学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/11/MySQL%E5%AD%A6%E4%B9%A0/" class="title">MySQL学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-11T14:27:37.000Z" itemprop="datePublished">2026-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/11/demo/" class="title">demo</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-11T10:06:19.000Z" itemprop="datePublished">2026-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-解决Hexo插入图片问题" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      解决Hexo插入图片问题
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/" class="article-date">
+	  <time datetime="2026-02-13T11:33:32.000Z" itemprop="datePublished">2026-02-13</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>遇到的问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、Failed to connect to github.com port 443 after 21085 ms: Could not connect to server	</span><br></pre></td></tr></table></figure>
+<p><strong>采用ssh连接github</strong></p>
+<p>1、打开github看能不能连接上，可以连接上继续下一步</p>
+<p>2、测试ssh是否能通，能通继续下一步</p>
+<p>3、上传的图片太多了，总数据量大，删除点图片</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、ssh: connect to host github.com port 22[443]: Connection refused</span><br></pre></td></tr></table></figure>
+<p>把steamcommunity关掉</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <!-- 
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="" title="" target="_blank" rel="external"></a>
+    </li>
+     -->
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/IMOUYO" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.gif" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/IMOUYO" target="_blank"><span class="text-dark">makabaka</span><small class="ml-1x"></small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2026/02/13/AOP/" title="AOP"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+<!-- 测试标记：看这个会不会出现在生成的HTML中 -->
+<!-- PARTIAL_IMAGE_FIXER_START -->
+<script>
+    (function() {
+  // 配置选项
+  const config = {
+    // 需要替换的路径规则
+    rules: [
+      {
+        pattern: '^解决Hexo插入图片问题/',           // 匹配以 /images/ 开头的路径
+        replace: ''       // 替换为 /assets/images/
+      }
+    ],
+    // 排除外部链接
+    excludeExternal: true,
+    // 是否显示调试信息
+    debug: true
+  };
+  
+  // 执行修改
+  function fixImagePaths() {
+    const images = document.getElementsByTagName('img');
+    
+    for (let img of images) {
+      let src = img.getAttribute('src');
+      
+      // 跳过空值
+      if (!src) continue;
+      
+      // 跳过外部链接（如果配置排除）
+      if (config.excludeExternal && src.match(/^(https?:)?\/\//)) continue;
+      
+      let originalSrc = src;
+      
+      // 应用所有替换规则
+      for (let rule of config.rules) {
+        const regex = new RegExp(rule.pattern);
+        if (regex.test(src)) {
+          src = src.replace(regex, rule.replace);
+        }
+      }
+      
+      // 如果路径改变了，更新图片 src
+      if (src !== originalSrc) {
+        img.src = src;
+        if (config.debug) {
+          console.log('✅ 图片路径已修改:', originalSrc, '→', src);
+        }
+      }
+    }
+  }
+  
+  // 在多个时机执行，确保修改生效
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixImagePaths);
+  } else {
+    fixImagePaths();
+  }
+  
+  // 如果是 SPA 或有动态加载的内容，可以监听 DOM 变化
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length) {
+        fixImagePaths();
+      }
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+})();
+</script>
+<!-- PARTIAL_IMAGE_FIXER_END -->
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23li41op8ra6ULwVKH',
+    clientSecret: '8637d8e4da9dee4d4ab44fff1c11f554fe5251f7',
+    repo: 'gitalk-comments',
+    owner: 'IMOUYO',
+    admin: ['IMOUYO'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true'
+  })
+  gitalk.render('comments')
+  </script>
+      
+
+
+
+
+
+
+
+  <script src="/js/toc.js"></script>
+</body>
+</html>
