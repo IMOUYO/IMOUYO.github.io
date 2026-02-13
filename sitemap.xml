@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://imouyo.github.io/2026/02/13/Hexo%E7%9A%84%E6%B5%8B%E8%AF%95/</loc>
+    
+    <lastmod>2026-02-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://imouyo.github.io/2026/02/13/AOP/</loc>
     
     <lastmod>2026-02-13</lastmod>
@@ -99,6 +108,13 @@
   </url>
   
   <url>
+    <loc>https://imouyo.github.io/tags/java/</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://imouyo.github.io/tags/MySQL/</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -107,13 +123,6 @@
   
   <url>
     <loc>https://imouyo.github.io/tags/issue/</loc>
-    <lastmod>2026-02-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://imouyo.github.io/tags/java/</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
