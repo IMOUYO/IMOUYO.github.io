@@ -9,7 +9,28 @@
   <link href="https://imouyo.github.io/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, John Doe</rights>
   <title>Hexo</title>
-  <updated>2026-02-13T13:11:45.715Z</updated>
+  <updated>2026-02-15T11:07:42.149Z</updated>
+  <entry>
+    <author>
+      <name>John Doe</name>
+    </author>
+    <content>
+      <![CDATA[<h2 id="ejs"><a class="markdownIt-Anchor" href="#ejs"></a> Ejs</h2><table><thead><tr><th style="text-align:left">标签</th><th style="text-align:left">含义</th></tr></thead><tbody><tr><td style="text-align:left">&lt;%</td><td style="text-align:left">脚本标签，用于流程控制</td></tr><tr><td style="text-align:left">&lt;%_</td><td style="text-align:left">删除前面的空格符</td></tr><tr><td style="text-align:left">&lt;%=</td><td style="text-align:left">输出数据到模板</td></tr><tr><td style="text-align:left">&lt;%-</td><td style="text-align:left">输出非转义数据到模板</td></tr><tr><td style="text-align:left">&lt;%#</td><td style="text-align:left">注释</td></tr><tr><td style="text-align:left">&lt;%%</td><td style="text-align:left">输出字符串『&lt;%』</td></tr><tr><td style="text-align:left">&gt;%</td><td style="text-align:left">脚本结束标签</td></tr><tr><td style="text-align:left">-%&gt;</td><td style="text-align:left">结束时，删除换行符</td></tr><tr><td style="text-align:left">_%&gt;</td><td style="text-align:left">结束时，删除空格符</td></tr><tr><td style="text-align:left">&lt;%- include(“index.ejs”) %&gt;</td><td style="text-align:left">引入其他模板</td></tr></tbody></table><h2 id="hexo"><a class="markdownIt-Anchor" href="#hexo"></a> Hexo</h2><table><thead><tr><th style="text-align:left">变量</th><th style="text-align:left">描述</th></tr></thead><tbody><tr><td style="text-align:left">site</td><td style="text-align:left">总体变量，几乎都是从这里开始的</td></tr><tr><td style="text-align:left">site.posts</td><td style="text-align:left">所有文章</td></tr><tr><td style="text-align:left">site.posts[0].path</td><td style="text-align:left">文章路径，带日期的</td></tr><tr><td style="text-align:left">site.posts[0].slug</td><td style="text-align:left">文章路径，根据项目文件夹的路径来的</td></tr><tr><td style="text-align:left">site.posts[0]._id</td><td style="text-align:left">文章的唯一 id，后面会用于 active 对比</td></tr><tr><td style="text-align:left">site.posts[0].title</td><td style="text-align:left">文章的标题</td></tr><tr><td style="text-align:left">site.posts[0].date</td><td style="text-align:left">文章的时间</td></tr><tr><td style="text-align:left">page.date</td><td style="text-align:left">在直接访问文章路径下，文章的时间</td></tr><tr><td style="text-align:left">page.title</td><td style="text-align:left">在直接访问文章路径下，文章的标题</td></tr><tr><td style="text-align:left">page._id</td><td style="text-align:left">在直接访问文章路径下，文章的的唯一 id，后面会用于 active 对比</td></tr><tr><td style="text-align:left">page.content</td><td style="text-align:left">引入对应文章的正文</td></tr><tr><td style="text-align:left"><a href="http://config.xxx">config.xxx</a></td><td style="text-align:left">总体配置文件的引用 _config.yml</td></tr><tr><td style="text-align:left"><a href="http://theme.xxx">theme.xxx</a></td><td style="text-align:left">主题配置文件 theme._config.yml</td></tr><tr><td style="text-align:left">&lt;%- body %&gt;</td><td style="text-align:left">同时引入 post.ejs 和 index.ejs</td></tr><tr><td style="text-align:left">&lt;%- css(path, …) %&gt;</td><td style="text-align:left">引入 css 文件</td></tr><tr><td style="text-align:left">&lt;%- js(path, …) %&gt;</td><td style="text-align:left">引入 js 文件</td></tr></tbody></table>]]>
+    </content>
+    <id>https://imouyo.github.io/2026/02/15/EJS/</id>
+    <link href="https://imouyo.github.io/2026/02/15/EJS/"/>
+    <published>2026-02-15T11:06:50.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="ejs"><a class="markdownIt-Anchor" href="#ejs"></a> Ejs</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text]]>
+    </summary>
+    <title>EJS</title>
+    <updated>2026-02-15T11:07:42.149Z</updated>
+  </entry>
   <entry>
     <author>
       <name>John Doe</name>
