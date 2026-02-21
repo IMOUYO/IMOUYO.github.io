@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>electron学习 | Hexo</title>
+  <meta name="description" content="工作流程   1. 初始化 npm 项目 Electron 应用基于 npm 搭建，以 package.json 文件作为入口点。 首先创建一个文件夹，然后在其中执行 npm init 初始化项目。  npm  12mkdir my-electron-app &amp;&amp; cd my-electron-appnpm init 然后，将 Electron 安装为您项目的 devDepend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="electron学习">
+<meta property="og:url" content="https://imouyo.github.io/2026/02/21/electron%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="工作流程   1. 初始化 npm 项目 Electron 应用基于 npm 搭建，以 package.json 文件作为入口点。 首先创建一个文件夹，然后在其中执行 npm init 初始化项目。  npm  12mkdir my-electron-app &amp;&amp; cd my-electron-appnpm init 然后，将 Electron 安装为您项目的 devDepend">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/21/electron%E5%AD%A6%E4%B9%A0/electron%E5%AD%A6%E4%B9%A0/image-20260221215237301.png">
+<meta property="article:published_time" content="2026-02-21T13:40:37.000Z">
+<meta property="article:modified_time" content="2026-02-21T16:08:28.987Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imouyo.github.io/2026/02/21/electron%E5%AD%A6%E4%B9%A0/electron%E5%AD%A6%E4%B9%A0/image-20260221215237301.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://imouyo.github.io/2026/02/21/electron%E5%AD%A6%E4%B9%A0/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/IMOUYO" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.gif" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">makabaka</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Earth</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+<div>
+  <h3 id="catalog"></h3>
+  <div id="toc"></div>
+</div>
+
+<script>
+(function() {
+  // ===== 生成目录 =====
+  function buildToc() {
+    // var article = document.querySelector('.post-content, .article-content, main');
+    var article = document.querySelector('article.thisIsAAnchor');
+    if (!article) return;
+    
+    document.getElementById('catalog').innerHTML = '目录';
+    var headings = article.querySelectorAll('h1, h2, h3, h4');
+    if (headings.length === 0) {
+      document.getElementById('toc').innerHTML = '<p>无标题</p>';
+      return;
+    }
+    
+    var toc = document.getElementById('toc');
+    var ul = document.createElement('ul');
+    
+    headings.forEach(function(heading, index) {
+      // 生成唯一ID
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      a.style.marginLeft = (parseInt(heading.tagName[1]) - 1) * 12 + 'px';
+      a.style.display = 'inline-block';
+      
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    
+    toc.innerHTML = '';
+    toc.appendChild(ul);
+    return headings;
+  }
+  
+  // ===== 绑定点击事件 =====
+  function bindClick() {
+    document.getElementById('toc').addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (link) {
+        e.preventDefault();
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          history.pushState(null, null, link.getAttribute('href'));
+        }
+      }
+    });
+  }
+  
+  // ===== 滚动高亮 =====
+  function highlightActive() {
+  var tocLinks = document.querySelectorAll('#toc a');
+  if (tocLinks.length === 0) return;
+  
+  // 默认高亮第一个
+  tocLinks[0].style.fontWeight = 'bold';
+  tocLinks[0].style.color = '#0066cc';
+  tocLinks[0].style.borderLeft = '3px solid #0066cc';
+  tocLinks[0].style.paddingLeft = '8px';
+  
+  // 为每个目录链接添加点击事件
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // 移除所有链接的高亮样式
+      tocLinks.forEach(function(l) {
+        l.style.fontWeight = 'normal';
+        l.style.color = '';
+        l.style.borderLeft = '';
+        l.style.paddingLeft = '';
+      });
+      
+      // 为当前点击的链接添加高亮样式
+      this.style.fontWeight = 'bold';
+      this.style.color = '#0066cc';
+      this.style.borderLeft = '3px solid #0066cc';
+      this.style.paddingLeft = '8px';
+    });
+  });
+}
+  
+  // ===== 初始化 =====
+  function init() {
+    buildToc();
+    bindClick();
+    highlightActive();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<style>
+/* 极简样式，可删除 */
+#toc ul { list-style: none; padding-left: 0; }
+#toc li { margin: 5px 0; }
+#toc a { text-decoration: none; color: #333; }
+#toc a:hover { color: #0066cc; }
+</style>
+
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!联系我wangyimail20230608@163.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/issue/" rel="tag">issue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" rel="tag">数据库查询</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/issue/" style="font-size: 13px;">issue</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 13px;">学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" style="font-size: 13px;">数据库查询</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a><span class="archive-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/21/electron%E5%AD%A6%E4%B9%A0/" class="title">electron学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-21T13:40:37.000Z" itemprop="datePublished">2026-02-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/19/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-19T10:22:27.436Z" itemprop="datePublished">2026-02-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/15/EJS/" class="title">EJS</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-15T11:06:50.000Z" itemprop="datePublished">2026-02-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/13/Hexo%E7%9A%84%E6%B5%8B%E8%AF%95/" class="title">Hexo的测试</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-13T13:11:22.000Z" itemprop="datePublished">2026-02-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/13/%E8%A7%A3%E5%86%B3Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8D%E6%98%BE%E7%A4%BA/" class="title">解决Hexo插入图片本地预览不显示</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-13T11:33:32.000Z" itemprop="datePublished">2026-02-13</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-electron学习" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      electron学习
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2026/02/21/electron%E5%AD%A6%E4%B9%A0/" class="article-date">
+	  <time datetime="2026-02-21T13:40:37.000Z" itemprop="datePublished">2026-02-21</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/21/electron%E5%AD%A6%E4%B9%A0/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="工作流程"><a class="markdownIt-Anchor" href="#工作流程"></a> 工作流程</h3>
+<p><img src="electron%E5%AD%A6%E4%B9%A0/image-20260221215237301.png" alt="image-20260221215237301" /></p>
+<h3 id="1-初始化-npm-项目"><a class="markdownIt-Anchor" href="#1-初始化-npm-项目"></a> 1. 初始化 npm 项目</h3>
+<p>Electron 应用基于 npm 搭建，以 package.json 文件作为入口点。 首先创建一个文件夹，然后在其中执行 <code>npm init</code> 初始化项目。</p>
+<ul>
+<li>npm</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> my-electron-app &amp;&amp; <span class="built_in">cd</span> my-electron-app</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p>然后，将 Electron 安装为您项目的 <strong>devDependencies</strong>，即仅在开发环境需要的额外依赖。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron --save-dev</span><br></pre></td></tr></table></figure>
+<p>该命令经常运行出错，可以采用cnpm安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npmmirror.com</span><br><span class="line">cnpm install --save-dev electron</span><br></pre></td></tr></table></figure>
+<h3 id="2-添加-gitignore-文件"><a class="markdownIt-Anchor" href="#2-添加-gitignore-文件"></a> 2. 添加 .gitignore 文件</h3>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/docs/gitignore"><code>.gitignore</code></a> 文件可以指定哪些文件和目录应该在Git中不被跟踪。 建议您复制一份 <a target="_blank" rel="noopener" href="https://github.com/github/gitignore/blob/main/Node.gitignore">GitHub 的 Node.js gitignore 模板</a> 到您项目的根目录，以避免将 <code>node_modules</code> 文件夹提交到版本控制系统中。</p>
+<h3 id="3-运行-electron-应用"><a class="markdownIt-Anchor" href="#3-运行-electron-应用"></a> 3. 运行 Electron 应用</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run start</span><br></pre></td></tr></table></figure>
+<h3 id="mainjs模板"><a class="markdownIt-Anchor" href="#mainjs模板"></a> main.js模板</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; app, <span class="title class_">BrowserWindow</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;electron&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例化窗口函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">createWindow</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> win = <span class="keyword">new</span> <span class="title class_">BrowserWindow</span>(&#123;</span><br><span class="line">        <span class="attr">width</span>: <span class="number">800</span>,</span><br><span class="line">        <span class="attr">height</span>: <span class="number">600</span>,</span><br><span class="line">        <span class="attr">webPreferences</span>: &#123;</span><br><span class="line">            <span class="attr">nodeIntegration</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 加载页面文件</span></span><br><span class="line">    win.<span class="title function_">loadFile</span>(<span class="string">&#x27;./src/index.html&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 当app,准备就绪时,创建窗口</span></span><br><span class="line">app.<span class="title function_">on</span>(<span class="string">&#x27;ready&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">createWindow</span>()</span><br><span class="line">    <span class="comment">// 针对macOS系统,当没有窗口时,点击 dock 图标时,重新创建一个窗口</span></span><br><span class="line">    app.<span class="title function_">on</span>(<span class="string">&#x27;activate&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title class_">BrowserWindow</span>.<span class="title function_">getAllWindows</span>().<span class="property">length</span> === <span class="number">0</span>) <span class="title function_">createWindow</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 针对windows系统,当所有窗口关闭时,退出app</span></span><br><span class="line">app.<span class="title function_">on</span>(<span class="string">&#x27;window-all-closed&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.<span class="property">platform</span> !== <span class="string">&#x27;darwin&#x27;</span>) app.<span class="title function_">quit</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="preload-脚本"><a class="markdownIt-Anchor" href="#preload-脚本"></a> Preload 脚本</h3>
+<p>​	预加载（Preload）脚本是运⾏在渲染进程中的， 但它是在⽹⻚内容加载之前执⾏的，这意味着它 具有⽐普通渲染器代码更⾼的权限，可以访问 Node.js 的 API，同时⼜可以与⽹⻚内容进⾏安全 的交互。 简单说：它是 Node.js 和 Web API 的桥梁，Preload 脚本可以安全地将部分 Node.js 功能暴露 给⽹⻚，从⽽减少安全⻛险。</p>
+<ul>
+<li>[ ] <strong>需求：点击按钮后，在⻚⾯呈现当前的 Node 版本。</strong></li>
+</ul>
+<ol>
+<li>
+<p>创建预加载脚本 preload.js ，内容如下</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;contextBridge&#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>)</span><br><span class="line"><span class="comment">// 暴露数据给渲染进程</span></span><br><span class="line">contextBridge.<span class="title function_">exposeInMainWorld</span>(<span class="string">&#x27;myAPI&#x27;</span>,&#123;	</span><br><span class="line"> <span class="attr">version</span>: process.<span class="property">version</span>					<span class="comment">//  &lt;--</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在主线程中引⼊ preload.js</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> win = <span class="keyword">new</span> <span class="title class_">BrowserWindow</span>(&#123;</span><br><span class="line"> <span class="comment">/*******/</span></span><br><span class="line"> <span class="attr">webPreferences</span>:&#123;</span><br><span class="line"> <span class="attr">preload</span>:path.<span class="title function_">resolve</span>(__dirname,<span class="string">&#x27;./preload.js&#x27;</span>)		<span class="comment">//  &lt;--</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">/*******/</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在 html ⻚⾯中编写相对应的按钮，创建专⻔编写⽹⻚脚本的 render.js，并进行事件绑定，随后引⼊html。</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好啊！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>在⽤户的D盘创建⼀个hello.txt<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./render.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在渲染进程中使⽤ version</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(myAPI.<span class="property">version</span>)</span><br><span class="line"> <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerHTML</span> += <span class="string">`&lt;h2&gt;<span class="subst">$&#123;myAPI.version&#125;</span>&lt;/h2&gt;`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="ipc"><a class="markdownIt-Anchor" href="#ipc"></a> IPC</h3>
+<blockquote>
+<p>值得注意的是： 上⽂中的 preload.js ，⽆法使⽤全部 Node 的 API ，⽐如：不能使⽤ Node 中的 fs 模 块，但主进程（ main.js ）是可以的，这时就需要进程通信了。简单说：要 让 preload.js 通知 main.js 去调⽤ fs 模块去⼲活。</p>
+</blockquote>
+<h4 id="1-渲染进程主进程单向"><a class="markdownIt-Anchor" href="#1-渲染进程主进程单向"></a> 1. 渲染进程→主进程（单向）</h4>
+<p>概述：在渲染器进程中<a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest/api/ipc-renderer">ipcRenderer.send</a>发送消息，在主进程中使⽤ ipcMain.on 接收消息。</p>
+<p>常⽤于：在web中调用主进程的API</p>
+<p><strong>需求：点击按钮后，在⽤户的 D 盘创建⼀个 hello.txt ⽂件，⽂件内容来⾃于⽤户输⼊。</strong></p>
+<ol>
+<li>html⻚⾯中添加相关元素，</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>在⽤户的D盘创建⼀个hello.txt<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>	render.js 中添加对应脚本
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;btn&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(content.<span class="property">value</span>)</span><br><span class="line"> myAPI.<span class="title function_">saveFile</span>(content.<span class="property">value</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>preload.js 中使⽤ <code>ipcRenderer.send('信道',参数) </code>发送消息，与主进程通信。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;contextBridge,ipcRenderer&#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>)</span><br><span class="line">contextBridge.<span class="title function_">exposeInMainWorld</span>(<span class="string">&#x27;myAPI&#x27;</span>,&#123;</span><br><span class="line"> <span class="comment">/*******/</span></span><br><span class="line"> <span class="title function_">saveFile</span>(<span class="params">str</span>)&#123;</span><br><span class="line"> <span class="comment">// 渲染进程给主进程发送⼀个消息</span></span><br><span class="line"> ipcRenderer.<span class="title function_">send</span>(<span class="string">&#x27;create-file&#x27;</span>,str)	<span class="comment">//  &lt;--</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>主进程中，在加载⻚⾯之前，使⽤ <code>ipcMain.on('信道',回调)</code> 配置对应回调函数，接收消息。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ⽤于创建窗⼝</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createWindow</span>(<span class="params"></span>) &#123;</span><br><span class="line"> <span class="comment">/**********/</span></span><br><span class="line"> <span class="comment">// 主进程注册对应回调</span></span><br><span class="line"> ipcMain.<span class="title function_">on</span>(<span class="string">&#x27;create-file&#x27;</span>,createFile)		<span class="comment">//  &lt;--</span></span><br><span class="line"> <span class="comment">// 加载⼀个本地⻚⾯</span></span><br><span class="line"> win.<span class="title function_">loadFile</span>(path.<span class="title function_">resolve</span>(__dirname,<span class="string">&#x27;./pages/index.html&#x27;</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建⽂件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createFile</span>(<span class="params">event,data</span>)&#123;</span><br><span class="line"> fs.<span class="title function_">writeFileSync</span>(<span class="string">&#x27;D:/hello.txt&#x27;</span>,data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-渲染进程主进程双向"><a class="markdownIt-Anchor" href="#2-渲染进程主进程双向"></a> 2. 渲染进程↔主进程（双向）</h4>
+<p>概述：渲染进程通过<code>ipcRenderer.invoke</code>发送消息，主进程使⽤<code>ipcMain.handle</code>接收并处理消 息。</p>
+<p>备注： ipcRender.invoke 的返回值是 Promise 实例。可以调用.toString()获取源数据.</p>
+<p><strong>需求：点击按钮从 D 盘读取 hello.txt 中的内容，并将结果呈现在⻚⾯上</strong></p>
+<ol>
+<li>html⻚⾯中添加相关元素，</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>读取⽤户D盘的hello.txt<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​	render.js 中添加对应脚本</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;btn&#x27;</span>)</span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="title function_">async</span>()=&gt;&#123;</span><br><span class="line"> <span class="keyword">let</span> data =</span><br><span class="line"> <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerHTML</span> += <span class="string">`&lt;h2&gt;<span class="subst">$&#123;data&#125;</span>&lt;/h2&gt;`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>preload.js 中使⽤ ipcRenderer.invoke(‘信道’,参数) 发送消息，与主进程通信。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;contextBridge,ipcRenderer&#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>)</span><br><span class="line">contextBridge.<span class="title function_">exposeInMainWorld</span>(<span class="string">&#x27;myAPI&#x27;</span>,&#123;</span><br><span class="line"> <span class="comment">/*******/</span></span><br><span class="line"> <span class="title function_">readFile</span> (path)&#123;</span><br><span class="line"> <span class="keyword">return</span> ipcRenderer.<span class="title function_">invoke</span>(<span class="string">&#x27;read-file&#x27;</span>)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>主进程中，在加载⻚⾯之前，使⽤ ipcMain.handle(‘信道’,回调) 接收消息，并配置回 调函数。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ⽤于创建窗⼝</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createWindow</span>(<span class="params"></span>) &#123;</span><br><span class="line"> <span class="comment">/**********/</span></span><br><span class="line"> <span class="comment">// 主进程注册对应回调</span></span><br><span class="line"> ipcMain.<span class="title function_">handle</span>(<span class="string">&#x27;read-file&#x27;</span>,readFile)</span><br><span class="line"> <span class="comment">// 加载⼀个本地⻚⾯</span></span><br><span class="line"> win.<span class="title function_">loadFile</span>(path.<span class="title function_">resolve</span>(__dirname,<span class="string">&#x27;./pages/index.html&#x27;</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//读取⽂件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">readFile</span>(<span class="params">event,path</span>)&#123;</span><br><span class="line"> <span class="keyword">return</span> fs.<span class="title function_">readFileSync</span>(path).<span class="title function_">toString</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-主进程到渲染进程"><a class="markdownIt-Anchor" href="#3-主进程到渲染进程"></a> 3. 主进程到→渲染进程</h4>
+<p>概述：主进程使⽤ win.webContents.send 发送消息，渲染进程通过ipcRenderer.on 处理消息， 常⽤于：从主进程主动发消息给渲染进程，例如下⾯的这个需求：</p>
+<p><strong>需求：应⽤加载 6 秒钟后，主动给渲染进程发送⼀个消息，内容是：你好啊！</strong></p>
+<ol>
+<li>⻚⾯中添加相关元素，render.js 中添加对应脚本</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="function">()=&gt;</span>&#123;</span><br><span class="line"> myAPI.<span class="title function_">getMessage</span>(logMessage)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">logMessage</span>(<span class="params">event,str</span>)&#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(event,str)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>preload.js</code>中使⽤<code>ipcRenderer.on ('信道',回调)</code>接收消息，并配置回调函数。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;contextBridge,ipcRenderer&#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>)</span><br><span class="line">contextBridge.<span class="title function_">exposeInMainWorld</span>(<span class="string">&#x27;myAPI&#x27;</span>,&#123;</span><br><span class="line"> <span class="comment">/*******/</span></span><br><span class="line"> <span class="attr">getMessage</span>: <span class="function">(<span class="params">callback</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> ipcRenderer.<span class="title function_">on</span>(<span class="string">&#x27;message&#x27;</span>, callback);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>主进程中，在合适的时候，使⽤<code>win.webContents.send('信道',数据)</code>发送消息。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ⽤于创建窗⼝</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createWindow</span>(<span class="params"></span>) &#123;</span><br><span class="line"> <span class="comment">/**********/</span></span><br><span class="line"> <span class="comment">// 加载⼀个本地⻚⾯</span></span><br><span class="line"> win.<span class="title function_">loadFile</span>(path.<span class="title function_">resolve</span>(__dirname,<span class="string">&#x27;./pages/index.html&#x27;</span>))</span><br><span class="line"> <span class="comment">// 创建⼀个定时器</span></span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"> win.<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">&#x27;message&#x27;</span>,<span class="string">&#x27;你好啊！&#x27;</span>)</span><br><span class="line"> &#125;, <span class="number">6000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="打包应用"><a class="markdownIt-Anchor" href="#打包应用"></a> 打包应用</h3>
+<p>使⽤ electron-builder 打包应⽤</p>
+<ol>
+<li>安装 <code>electron-builder </code></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron-builder -D</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在 package.json 中进⾏相关配置，具体配置如下</li>
+</ol>
+<blockquote>
+<p>备注：json ⽂件不⽀持注释，使⽤时请去掉所有注释。</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;video-tools&quot;</span><span class="punctuation">,</span> <span class="comment">// 应⽤程序的名称</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span> <span class="comment">// 应⽤程序的版本</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;main.js&quot;</span><span class="punctuation">,</span> <span class="comment">// 应⽤程序的⼊⼝⽂件</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;electron .&quot;</span><span class="punctuation">,</span> <span class="comment">// 使⽤ `electron .` 命令启动应⽤程序</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;electron-builder&quot;</span> <span class="comment">// 使⽤ `electron-builder` 打包应⽤程序，⽣成安装包			&lt;--必须</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//		&lt;--以下必须--&gt;</span></span><br><span class="line">  <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>	</span><br><span class="line">    <span class="attr">&quot;appId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;com.atguigu.video&quot;</span><span class="punctuation">,</span> <span class="comment">// 应⽤程序的唯⼀标识符</span></span><br><span class="line">    <span class="comment">// 打包windows平台安装包的具体配置</span></span><br><span class="line">    <span class="attr">&quot;win&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./logo.ico&quot;</span><span class="punctuation">,</span> <span class="comment">//应⽤图标</span></span><br><span class="line">      <span class="attr">&quot;target&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;target&quot;</span><span class="punctuation">:</span> <span class="string">&quot;nsis&quot;</span><span class="punctuation">,</span> <span class="comment">// 指定使⽤ NSIS 作为安装程序格式</span></span><br><span class="line">          <span class="attr">&quot;arch&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;x64&quot;</span></span><br><span class="line">          <span class="punctuation">]</span> <span class="comment">// ⽣成 64 位安装包</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;nsis&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;oneClick&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span> <span class="comment">// 设置为 `false` 使安装程序显示安装向导界⾯，⽽不是⼀键安装</span></span><br><span class="line"> <span class="attr">&quot;perMachine&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span> <span class="comment">// 允许每台机器安装⼀次，⽽不是每个⽤户都安装</span></span><br><span class="line">      <span class="attr">&quot;allowToChangeInstallationDirectory&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span> <span class="comment">// 允许⽤户在安装过程中选择安装⽬录</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">//		&lt;-------&gt;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;electron&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^30.0.0&quot;</span><span class="punctuation">,</span> <span class="comment">// 开发依赖中的 Electron 版本</span></span><br><span class="line">    <span class="attr">&quot;electron-builder&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^24.13.3&quot;</span> <span class="comment">// 开发依赖中的 `electron-builder` 版本</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tianyu&quot;</span><span class="punctuation">,</span> <span class="comment">// 作者信息</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span> <span class="comment">// 许可证信息</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;A video processing program based on Electron&quot;</span> <span class="comment">// 应⽤程序的描述</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>执⾏打包命令</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<h3 id="question"><a class="markdownIt-Anchor" href="#question"></a> Question</h3>
+<h4 id="1-使用箭头函数"><a class="markdownIt-Anchor" href="#1-使用箭头函数"></a> 1. 使用箭头函数</h4>
+<p>使用箭头函数 <code>() =&gt; {}</code> 替代传统的函数表达式，简化函数定义。</p>
+<p>传统函数表达式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>箭头函数简化定义：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">a, b</span>) =&gt; a + b;</span><br></pre></td></tr></table></figure>
+<p>通过使用箭头函数，我们可以将函数定义的语法更简洁地表示出来，省略了 <code>function</code> 关键字和 <code>return</code> 语句。箭头函数的特点是自动绑定了当前作用域的 <code>this</code> 值，因此在一些回调或高阶函数中使用会更加方便和简洁。请记住，箭头函数与传统函数表达式在语义和作用域绑定方面存在一些差异，在使用时要注意这些差异。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <!-- 
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="" title="" target="_blank" rel="external"></a>
+    </li>
+     -->
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/IMOUYO" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.gif" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/IMOUYO" target="_blank"><span class="text-dark">makabaka</span><small class="ml-1x"></small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2026/02/19/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/" title="(no title)"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+<!-- 测试标记：看这个会不会出现在生成的HTML中 -->
+<!-- PARTIAL_IMAGE_FIXER_START -->
+<script>
+    (function() {
+  // 配置选项
+  const config = {
+    // 需要替换的路径规则
+    rules: [
+      {
+        pattern: '^electron学习/',           // 匹配以 /images/ 开头的路径
+        replace: ''       // 替换为 /assets/images/
+      },
+      {
+        pattern: '^electron%E5%AD%A6%E4%B9%A0/',   //解决中文问题
+        replace: ''
+      }
+    ],
+    // 排除外部链接
+    excludeExternal: true,
+    // 是否显示调试信息
+    debug: true
+  };
+  
+  // 执行修改
+  function fixImagePaths() {
+    const images = document.getElementsByTagName('img');
+    
+    for (let img of images) {
+      let src = img.getAttribute('src');
+      
+      // 跳过空值
+      if (!src) continue;
+      
+      // 跳过外部链接（如果配置排除）
+      if (config.excludeExternal && src.match(/^(https?:)?\/\//)) continue;
+      
+      let originalSrc = src;
+      
+      // 应用所有替换规则
+      for (let rule of config.rules) {
+        const regex = new RegExp(rule.pattern);
+        if (regex.test(src)) {
+          src = src.replace(regex, rule.replace);
+        }
+      }
+      
+      // 如果路径改变了，更新图片 src
+      if (src !== originalSrc) {
+        img.src = src;
+        if (config.debug) {
+          console.log('✅ 图片路径已修改:', originalSrc, '→', src);
+        }
+      }
+    }
+  }
+  
+  // 在多个时机执行，确保修改生效
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixImagePaths);
+  } else {
+    fixImagePaths();
+  }
+  
+  // 如果是 SPA 或有动态加载的内容，可以监听 DOM 变化
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length) {
+        fixImagePaths();
+      }
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+})();
+</script>
+<!-- PARTIAL_IMAGE_FIXER_END -->
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23li41op8ra6ULwVKH',
+    clientSecret: '8637d8e4da9dee4d4ab44fff1c11f554fe5251f7',
+    repo: 'gitalk-comments',
+    owner: 'IMOUYO',
+    admin: ['IMOUYO'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true'
+  })
+  gitalk.render('comments')
+  </script>
+      
+
+
+
+
+
+
+
+  <script src="/js/toc.js"></script>
+</body>
+</html>
