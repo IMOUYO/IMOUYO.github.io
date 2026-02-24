@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>随身wifi刷linux | Hexo</title>
+  <meta name="description" content="推荐阅读： https:&#x2F;&#x2F;blog.iamsjy.com&#x2F;2023&#x2F;12&#x2F;11&#x2F;snapdragon-410-portable-wifi-hotspot-flash-debian-and-optimize&#x2F;#所需文件（主要进行刷机流程） https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;659249489（主要进行解除BL锁） backup中是所有分区的备份，不需要下载，在过程中需要你自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="随身wifi刷linux">
+<meta property="og:url" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="推荐阅读： https:&#x2F;&#x2F;blog.iamsjy.com&#x2F;2023&#x2F;12&#x2F;11&#x2F;snapdragon-410-portable-wifi-hotspot-flash-debian-and-optimize&#x2F;#所需文件（主要进行刷机流程） https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;659249489（主要进行解除BL锁） backup中是所有分区的备份，不需要下载，在过程中需要你自">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bucket.lxnchan.cn/posts/ufistick/miko.webp">
+<meta property="og:image" content="https://bucket.lxnchan.cn/posts/ufistick/miko-restore.webp">
+<meta property="og:image" content="https://bucket.lxnchan.cn/posts/ufistick/qpt.webp">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/image-20260223040900115.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/image-20260223041037126.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576ceae713b7.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576ced636acb.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cee2bd3a7.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf3d95a0f.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf5cb34d0.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf6e3537f.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf8484bd9.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf944056e.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf9b13fd4.png">
+<meta property="article:published_time" content="2026-02-22T14:45:13.000Z">
+<meta property="article:modified_time" content="2026-02-24T14:44:50.165Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DIY">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bucket.lxnchan.cn/posts/ufistick/miko.webp">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/IMOUYO" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.gif" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">makabaka</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Earth</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+<div>
+  <h3 id="catalog"></h3>
+  <div id="toc"></div>
+</div>
+
+<script>
+(function() {
+  // ===== 生成目录 =====
+  function buildToc() {
+    // var article = document.querySelector('.post-content, .article-content, main');
+    var article = document.querySelector('article.thisIsAAnchor');
+    if (!article) return;
+    
+    document.getElementById('catalog').innerHTML = '目录';
+    var headings = article.querySelectorAll('h1, h2, h3, h4');
+    if (headings.length === 0) {
+      document.getElementById('toc').innerHTML = '<p>无标题</p>';
+      return;
+    }
+    
+    var toc = document.getElementById('toc');
+    var ul = document.createElement('ul');
+    
+    headings.forEach(function(heading, index) {
+      // 生成唯一ID
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      a.style.marginLeft = (parseInt(heading.tagName[1]) - 1) * 12 + 'px';
+      a.style.display = 'inline-block';
+      
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    
+    toc.innerHTML = '';
+    toc.appendChild(ul);
+    return headings;
+  }
+  
+  // ===== 绑定点击事件 =====
+  function bindClick() {
+    document.getElementById('toc').addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (link) {
+        e.preventDefault();
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          history.pushState(null, null, link.getAttribute('href'));
+        }
+      }
+    });
+  }
+  
+  // ===== 滚动高亮 =====
+  function highlightActive() {
+  var tocLinks = document.querySelectorAll('#toc a');
+  if (tocLinks.length === 0) return;
+  
+  // 默认高亮第一个
+  tocLinks[0].style.fontWeight = 'bold';
+  tocLinks[0].style.color = '#0066cc';
+  tocLinks[0].style.borderLeft = '3px solid #0066cc';
+  tocLinks[0].style.paddingLeft = '8px';
+  
+  // 为每个目录链接添加点击事件
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // 移除所有链接的高亮样式
+      tocLinks.forEach(function(l) {
+        l.style.fontWeight = 'normal';
+        l.style.color = '';
+        l.style.borderLeft = '';
+        l.style.paddingLeft = '';
+      });
+      
+      // 为当前点击的链接添加高亮样式
+      this.style.fontWeight = 'bold';
+      this.style.color = '#0066cc';
+      this.style.borderLeft = '3px solid #0066cc';
+      this.style.paddingLeft = '8px';
+    });
+  });
+}
+  
+  // ===== 初始化 =====
+  function init() {
+    buildToc();
+    bindClick();
+    highlightActive();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<style>
+/* 极简样式，可删除 */
+#toc ul { list-style: none; padding-left: 0; }
+#toc li { margin: 5px 0; }
+#toc a { text-decoration: none; color: #333; }
+#toc a:hover { color: #0066cc; }
+</style>
+
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!联系我wangyimail20230608@163.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/" rel="tag">DIY</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Question/" rel="tag">Question</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/issue/" rel="tag">issue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" rel="tag">数据库查询</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/DIY/" style="font-size: 13px;">DIY</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/Question/" style="font-size: 13px;">Question</a> <a href="/tags/issue/" style="font-size: 13px;">issue</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 13px;">学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" style="font-size: 13px;">数据库查询</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a><span class="archive-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/" class="title">随身wifi刷linux</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-22T14:45:13.000Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/22/Questions/" class="title">Questions</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-22T09:16:57.000Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/21/electron%E5%AD%A6%E4%B9%A0/" class="title">electron学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-21T13:40:37.000Z" itemprop="datePublished">2026-02-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/19/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-19T10:22:27.436Z" itemprop="datePublished">2026-02-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/15/EJS/" class="title">EJS</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-15T11:06:50.000Z" itemprop="datePublished">2026-02-15</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-随身wifi刷linux" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      随身wifi刷linux
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/" class="article-date">
+	  <time datetime="2026-02-22T14:45:13.000Z" itemprop="datePublished">2026-02-22</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/DIY/" rel="tag">DIY</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>推荐阅读：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.iamsjy.com/2023/12/11/snapdragon-410-portable-wifi-hotspot-flash-debian-and-optimize/#%E6%89%80%E9%9C%80%E6%96%87%E4%BB%B6%EF%BC%88%E4%B8%BB%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%88%B7%E6%9C%BA%E6%B5%81%E7%A8%8B%EF%BC%89">https://blog.iamsjy.com/2023/12/11/snapdragon-410-portable-wifi-hotspot-flash-debian-and-optimize/#所需文件（主要进行刷机流程）</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/659249489%EF%BC%88%E4%B8%BB%E8%A6%81%E8%BF%9B%E8%A1%8C%E8%A7%A3%E9%99%A4BL%E9%94%81%EF%BC%89">https://zhuanlan.zhihu.com/p/659249489（主要进行解除BL锁）</a></p>
+<p><strong>backup中是所有分区的备份，不需要下载，在过程中需要你自己备份自己手头的随身wifi</strong></p>
+<h3 id="1-看芯片"><a class="markdownIt-Anchor" href="#1-看芯片"></a> 1、看芯片</h3>
+<p>​	拆下全部屏蔽罩，查找最大的一块芯片，看芯片上方丝印，一般来说会有以下几种情况：</p>
+<ul>
+<li>
+<p><code>QUALCOMM MSM8916</code>：高通410，也是玩法最多的；</p>
+</li>
+<li>
+<p><code>QUALCOMM MSM8909</code>：高通210，玩法仅次于410；</p>
+<p>本人的为高通410，板子为boot-ufi001c</p>
+</li>
+</ul>
+<h3 id="2-安装-9008-驱动"><a class="markdownIt-Anchor" href="#2-安装-9008-驱动"></a> 2、安装 9008 驱动</h3>
+<p>​	运行9008driver.exe</p>
+<h3 id="3-安装-adb-工具"><a class="markdownIt-Anchor" href="#3-安装-adb-工具"></a> 3、安装 ADB 工具</h3>
+<p>​	解压UFI003.zip，并进入用CMD解压文件夹，可直接使用adb不需要添加环境变量</p>
+<p>​	打开命令提示符，执行 <code>adb version</code>。有如下输出，则表明配置正确。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意看我的路径</span></span><br><span class="line">C:\Users\user\Desktop\123\UFI003&gt;adb version</span><br><span class="line">Android Debug Bridge version 1.0.41</span><br><span class="line">Version 32.0.0-8006631</span><br><span class="line">Installed as C:\Users\user\Desktop\123\UFI003\adb.exe</span><br></pre></td></tr></table></figure>
+<h3 id="4-安装-miko-备份工具"><a class="markdownIt-Anchor" href="#4-安装-miko-备份工具"></a> 4、安装 Miko 备份工具</h3>
+<p>​	解压MiKo_Loder Pro.zip，点击里面的miko.exe，安装完之后进入安装目录，将loader.exe拖进去，之后使用Miko工具均从loader.exe打开</p>
+<p>随身wifi进入9008``模式，之后执行下图步骤</p>
+<p><img src="https://bucket.lxnchan.cn/posts/ufistick/miko.webp" alt="img" /></p>
+<p>​	若需要恢复则：随身wifi进入9008模式，执行下图步骤</p>
+<p><img src="https://bucket.lxnchan.cn/posts/ufistick/miko-restore.webp" alt="img" /></p>
+<h3 id="5-开启-adb"><a class="markdownIt-Anchor" href="#5-开启-adb"></a> 5、开启 ADB</h3>
+<p>​	将随身 WiFi 插入电脑 USB 接口。打开设备管理器，如果此时多了一个名叫 Android Composite ADB Interface 的设备，则表明随身 WiFi 已经开启 ADB，无需执行其他操作。</p>
+<p>​	如果没有出现这个设备，则需要手动开启 ADB。以 UZ801 型号为例，连上随身 WiFi 的热点，并访问 <a target="_blank" rel="noopener" href="http://192.168.100.1/usbdebug.html">http://192.168.100.1/usbdebug.html</a> 即可开启 ADB，再次访问即可关闭。</p>
+<p>​	部分 UFI003 型号的随身 WiFi 默认不开 ADB，需要手动进 9008 模式刷入已开启 ADB 的安卓固件。</p>
+<p>固件下载地址：<a target="_blank" rel="noopener" href="https://www.123pan.com/s/NUK8Vv-nRdl">https://www.123pan.com/s/NUK8Vv-nRdl</a> 提取码：1LEW</p>
+<p>​	手动进 9008 模式的方法：按住 reset 键不放（随身 WiFi 背面二维码右上角的小孔，用取卡针或牙签戳即可），并将随身 WiFi 插入电脑，松开 reset 键。</p>
+<h3 id="5-备份原厂固件"><a class="markdownIt-Anchor" href="#5-备份原厂固件"></a> 5、备份原厂固件</h3>
+<p>​	打开命令提示符，执行 <code>adb reboot edl</code>，此时设备管理器中会多出高通 9008 设备。</p>
+<h3 id="6-刷入系统"><a class="markdownIt-Anchor" href="#6-刷入系统"></a> 6、刷入系统</h3>
+<p>​	我的这个随身wifi被锁了BL，所以需要通过9008模式强行刷入</p>
+<p>​	下面进行解BL锁</p>
+<h3 id="7-下载emmc_appsboot-test-signedmbn和qualcomm-premium-tool"><a class="markdownIt-Anchor" href="#7-下载emmc_appsboot-test-signedmbn和qualcomm-premium-tool"></a> 7、下载emmc_appsboot-test-signed.mbn和Qualcomm Premium Tool</h3>
+<p>​	随身wifi进入9008模式，继续按照下图备份</p>
+<p><img src="https://bucket.lxnchan.cn/posts/ufistick/qpt.webp" alt="img" /></p>
+<p>​	之后按照下图进行替换about，<strong>之后在弹出的页面选择你所下载的emmc_appsboot-test-signed.mbn</strong></p>
+<p><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/image-20260223040900115.png" alt="image-20260223040900115" /></p>
+<p>​	当左侧提示aboutDone之后，进行格式化boot</p>
+<p><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/image-20260223041037126.png" alt="image-20260223041037126" /></p>
+<p>​	之后就可以重启了，重启之后执行<code>adb reboot bootloader</code>进入fastboot模式，就可以进行刷入系统了，在<a target="_blank" rel="noopener" href="https://github.com/OpenStick/OpenStick">OpenStick</a>内下载系统了，下载完成后运行压缩包内的flash.bat就可以刷入了，期间点几个回车</p>
+<h3 id="安装-rndis-网络驱动"><a class="markdownIt-Anchor" href="#安装-rndis-网络驱动"></a> 安装 RNDIS 网络驱动</h3>
+<p>​	重新插入随身 WiFI，打开任务管理器，在其他设备中会出现一个未知设备或以 RNDIS 开头的设备</p>
+<blockquote>
+<p>如果设备管理器只显示 Android Device，右键更新驱动程序，依次选择<strong>更新驱动程序</strong>–&gt;<strong>浏览我的电脑以查找驱动程序–&gt;让我从计算机上的可用驱动程序列表中选取-&gt;去掉打勾显示兼容硬件-&gt;左侧找到Microsoft，右侧找到USB移动宽带网络适配器-&gt;安装</strong>，然后重新插入随身 WiFi，会出现一个未知设备，再根据下述步骤进行操作。</p>
+</blockquote>
+<p><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576ceae713b7.png" alt="image-20231211002244435" /></p>
+<p>​	右键，<strong>更新驱动程序</strong>–&gt;<strong>浏览我的电脑以查找驱动程序</strong>–&gt;<strong>让我从计算机上的可用驱动程序列表中选取</strong>–&gt;<strong>显示所有设备</strong>，等待列表加载完成。</p>
+<p><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576ced636acb.png" alt="image-20231211002348468" /></p>
+<p>​	左侧选择 <strong>Microsoft</strong>，右侧选择 <strong>基于远程 NDIS 的 Internet 共享设备</strong>，在弹出窗口中选择是，并确定。</p>
+<p><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cee2bd3a7.png" alt="image-20231211002724457" /></p>
+<p>​	至此，RNDIS 驱动安装成功。</p>
+<p><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf3d95a0f.png" alt="image-20231211002850196" /></p>
+<h3 id="登录debian"><a class="markdownIt-Anchor" href="#登录debian"></a> 登录debian</h3>
+<p>​	驱动安装成功后，电脑上会多出一个名叫 <code>4G_UFI_123456</code> 的 NDIS 设备，同时会出现一个同名的热点，密码为 <strong>12345678</strong>。</p>
+<p>​	Debian 默认用户名为 user，密码为 1，root 密码也为 1。<strong>请务必及时修改密码（命令：passwd）。</strong></p>
+<p>​	此时可以通过 adb 或 ssh 连接到 Debian 终端。</p>
+<h3 id="通过-adb-连接"><a class="markdownIt-Anchor" href="#通过-adb-连接"></a> 通过 adb 连接</h3>
+<p>​	将随身 WiFi 插入电脑 USB 接口，使用以下命令查看已连接 adb 设备：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br><span class="line">C:\Users\Thinkpad&gt;adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">0123456789      device</span><br></pre></td></tr></table></figure>
+<p>​	有新设备出现时，使用以下指令进入 bash：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+<p>​	通过 adb 连接时，使用 <code>nmtui</code>、<code>htop</code> 等需要显示图形的命令，可能会出现如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@openstick:/# nmtui</span><br><span class="line">TERM environment variable needs set.</span><br></pre></td></tr></table></figure>
+<p>​	设置 <code>TERM</code> 环境变量即可解决。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export TERM=linux</span><br></pre></td></tr></table></figure>
+<h3 id="通过-ssh-连接"><a class="markdownIt-Anchor" href="#通过-ssh-连接"></a> 通过 ssh 连接</h3>
+<p>​	将随身 WiFi 插入电脑 USB 接口或连接上随身 WiFi 的热点，使用以下指令进行连接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.68.1</span><br></pre></td></tr></table></figure>
+<p>​	默认登陆密码为1，如果连不上说明系统还在启动，请稍后再试。</p>
+<h3 id="随身-wifi-联网"><a class="markdownIt-Anchor" href="#随身-wifi-联网"></a> 随身 WiFi 联网</h3>
+<p>​	此时随身 WiFi 并没有联网，必须要关闭热点才能连接 WiFi。下面介绍详细步骤。</p>
+<p>​	首先打开命令提示符，执行 <code>adb shell</code> 进入 Debian 终端。然后设置 TERM 环境变量：<code>export TERM=linux</code>。</p>
+<p>​	执行 <code>nmtui</code>，选择“编辑连接”。</p>
+<p><a target="_blank" rel="noopener" href="https://img-cdn.boochi.cn/i/2023/12/11/6576cf5cb34d0.png"><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf5cb34d0.png" alt="image-20231211005030766" /></a></p>
+<p>​	左侧使用方向键选择 <code>bridge</code>，右侧选择“编辑”。并回车。</p>
+<p><a target="_blank" rel="noopener" href="https://img-cdn.boochi.cn/i/2023/12/11/6576cf6e3537f.png"><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf6e3537f.png" alt="image-20231211005119460" /></a></p>
+<p>​	删除其中的 <code>wifi</code>，并选择确定。</p>
+<p><a target="_blank" rel="noopener" href="https://img-cdn.boochi.cn/i/2023/12/11/6576cf8484bd9.png"><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf8484bd9.png" alt="image-20231211005229505" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://img-cdn.boochi.cn/i/2023/12/11/6576cf944056e.png"><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf944056e.png" alt="image-20231211005307459" /></a></p>
+<p>​	返回，选择启用连接，则可连接 WiFi。</p>
+<p><a target="_blank" rel="noopener" href="https://img-cdn.boochi.cn/i/2023/12/11/6576cf9b13fd4.png"><img src="%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/6576cf9b13fd4.png" alt="img" /></a></p>
+<p>​	之后就可以在同一个wifi环境下，用电脑进行ssh登录</p>
+<h3 id="优化系统"><a class="markdownIt-Anchor" href="#优化系统"></a> 优化系统</h3>
+<p>​	删除无效软件包仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/apt/sources.list.d/*</span><br></pre></td></tr></table></figure>
+<p>​	删除多余软件包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt autopurge -y adoptopenjdk-8-hotspot</span><br></pre></td></tr></table></figure>
+<p>​	更换软件源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF&gt; /etc/apt/sources.list</span><br><span class="line">deb http://mirrors.ustc.edu.cn/debian/ bullseye main contrib non-free</span><br><span class="line"># deb-src http://mirrors.ustc.edu.cn/debian/ bullseye main contrib non-free</span><br><span class="line"></span><br><span class="line">deb http://mirrors.ustc.edu.cn/debian/ bullseye-updates main contrib non-free</span><br><span class="line"># deb-src http://mirrors.ustc.edu.cn/debian/ bullseye-updates main contrib non-free</span><br><span class="line"></span><br><span class="line">#deb http://mirrors.ustc.edu.cn/debian/ bullseye-backports main contrib non-free</span><br><span class="line"># deb-src http://mirrors.ustc.edu.cn/debian/ bullseye-backports main contrib non-free</span><br><span class="line"></span><br><span class="line">deb http://mirrors.ustc.edu.cn/debian-security/ bullseye-security main contrib non-free</span><br><span class="line"># deb-src http://mirrors.ustc.edu.cn/debian-security/ bullseye-security main contrib non-free</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>更新软件包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade -y</span><br></pre></td></tr></table></figure>
+<p>安装常用软件包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y nano curl</span><br></pre></td></tr></table></figure>
+<p>删除软件包缓存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt clean</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="question"><a class="markdownIt-Anchor" href="#question"></a> Question</h3>
+<h4 id="为什么装完灯不亮"><a class="markdownIt-Anchor" href="#为什么装完灯不亮"></a> <strong>为什么装完灯不亮？</strong></h4>
+<h5 id="解决办法"><a class="markdownIt-Anchor" href="#解决办法"></a> 解决办法</h5>
+<p>​	原因是有的灯的GPIO口与刷入系统的底层绑定的GPIO口不符合，需要自己找出来，安装<code>gpiod</code>来操作GPIO口</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt install gpiod -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gpiodetect	<span class="comment"># 可以查看所有的GPIO组</span></span><br><span class="line"><span class="comment"># 输出类似于：</span></span><br><span class="line">&gt;gpiochip0 [1000000.pinctrl] (122 lines)</span><br><span class="line">&gt;gpiochip1 [200f000.spmi:pmic@0:mpps@a000] (4 lines)</span><br><span class="line">&gt;gpiochip2 [200f000.spmi:pmic@0:gpios@c000] (4 lines)</span><br></pre></td></tr></table></figure>
+<p>​	然后通过，下面命令查看引脚GPIO状态</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpioinfo gpiochip0</span><br></pre></td></tr></table></figure>
+<p>===============================</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> gpioset gpiochip0 20=1			<span class="comment">#表示将GPIO 20 置于高电平</span></span><br></pre></td></tr></table></figure>
+<p>​	如果控制自己的20，21，22口灯没有变化，则可能就是GPIO口与刷入系统的底层绑定的GPIO口不符合，可以通过暴力枚举观察</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 暴力枚举 gpiochip0 的 0-50 号引脚可自己更改其他的引脚</span></span><br><span class="line"><span class="comment"># gpiochip1和gpiochip2不要动</span></span><br><span class="line"><span class="comment"># 这里的引脚范围可以根据gpioinfo gpiochip0查看引脚编号范围</span></span><br><span class="line"><span class="keyword">for</span> offset <span class="keyword">in</span> &#123;0..50&#125;; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Testing gpiochip0 offset <span class="variable">$offset</span>&quot;</span></span><br><span class="line">    <span class="built_in">sudo</span> gpioset gpiochip0 <span class="variable">$offset</span>=1</span><br><span class="line">    <span class="built_in">sleep</span> 0.5</span><br><span class="line">    <span class="built_in">sudo</span> gpioset gpiochip0 <span class="variable">$offset</span>=0</span><br><span class="line">    <span class="built_in">sleep</span> 0.2</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>​	我的情况是114电源绿,115电源红，7为wifi绿,31为数据绿</p>
+<h5 id="需求"><a class="markdownIt-Anchor" href="#需求"></a> <strong>需求：</strong></h5>
+<p><strong>1、开机状态下114口常亮</strong></p>
+<ol>
+<li>
+<p><strong>编辑 rc.local</strong></p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/rc.local</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>在 <code>exit 0</code> 之前加上这行</strong></p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpioset gpiochip0 114=1</span><br></pre></td></tr></table></figure>
+<p>完整示例：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">gpioset gpiochip0 114=1</span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>保存退出</strong>（Ctrl+X，按 Y，回车）</p>
+</li>
+<li>
+<p><strong>给执行权限</strong></p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /etc/rc.local</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>测试一下</strong></p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /etc/rc.local</span><br></pre></td></tr></table></figure>
+<p>如果灯亮了，说明脚本没问题，重启后会自动执行。</p>
+</li>
+</ol>
+<hr />
+<p><strong>2、当连接上wifi后，若有数据传入传出则让7口灯闪烁，传输快到某个阈值则常量</strong></p>
+<p>📌 <strong>参数微调</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">你的板子建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>HIGH_THRESHOLD</code></td>
+<td style="text-align:left">常亮阈值</td>
+<td style="text-align:left">5000（约 40kbps）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LOW_THRESHOLD</code></td>
+<td style="text-align:left">熄灭阈值</td>
+<td style="text-align:left">100</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MEDIUM_DELAY</code></td>
+<td style="text-align:left">中速闪间隔</td>
+<td style="text-align:left">0.3 秒</td>
+</tr>
+</tbody>
+</table>
+<p>你可以根据实际网速调整这些数值。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line">INTERFACE=<span class="string">&quot;wlan0&quot;</span>        <span class="comment"># WiFi 接口名（用 ip a 确认）</span></span><br><span class="line">GPIO=7                   <span class="comment"># 你找到的 WiFi 灯 GPIO</span></span><br><span class="line">UPDATE_INTERVAL=0.2      <span class="comment"># 采样间隔</span></span><br><span class="line">HIGH_THRESHOLD=5000      <span class="comment"># 超过这个流量（字节/秒）就常亮</span></span><br><span class="line">LOW_THRESHOLD=100        <span class="comment"># 低于这个流量就熄灭</span></span><br><span class="line">MEDIUM_DELAY=0.3         <span class="comment"># 中流量时的闪烁延迟</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line"><span class="built_in">echo</span> none | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/class/leds/*/trigger 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">get_traffic</span></span>() &#123;</span><br><span class="line">    <span class="built_in">cat</span> /proc/net/dev | grep <span class="string">&quot;<span class="variable">$INTERFACE</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $2 + $10&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">prev_tx=$(get_traffic)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>; <span class="keyword">do</span></span><br><span class="line">    curr_tx=$(get_traffic)</span><br><span class="line">    diff=$((curr_tx - prev_tx))</span><br><span class="line">    [ <span class="variable">$diff</span> -lt 0 ] &amp;&amp; diff=0</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$diff</span> -gt <span class="variable">$HIGH_THRESHOLD</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="comment"># 大量下载 → 常亮</span></span><br><span class="line">        <span class="built_in">sudo</span> gpioset gpiochip0 <span class="variable">$GPIO</span>=1</span><br><span class="line">        <span class="built_in">sleep</span> <span class="variable">$UPDATE_INTERVAL</span></span><br><span class="line">    <span class="keyword">elif</span> [ <span class="variable">$diff</span> -lt <span class="variable">$LOW_THRESHOLD</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="comment"># 无流量 → 熄灭</span></span><br><span class="line">        <span class="built_in">sudo</span> gpioset gpiochip0 <span class="variable">$GPIO</span>=0</span><br><span class="line">        <span class="built_in">sleep</span> <span class="variable">$UPDATE_INTERVAL</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="comment"># 中流量 → 闪烁</span></span><br><span class="line">        <span class="built_in">sudo</span> gpioset gpiochip0 <span class="variable">$GPIO</span>=1</span><br><span class="line">        <span class="built_in">sleep</span> <span class="variable">$MEDIUM_DELAY</span></span><br><span class="line">        <span class="built_in">sudo</span> gpioset gpiochip0 <span class="variable">$GPIO</span>=0</span><br><span class="line">        <span class="built_in">sleep</span> <span class="variable">$MEDIUM_DELAY</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    </span><br><span class="line">    prev_tx=<span class="variable">$curr_tx</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<hr />
+<p>🎯 <strong>效果说明</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">流量状态</th>
+<th style="text-align:left">灯的行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>无流量</strong> (<code>&lt;100 bytes/s</code>)</td>
+<td style="text-align:left">熄灭</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>少量流量</strong> (<code>100-5000</code>)</td>
+<td style="text-align:left">慢闪（0.3秒间隔）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>大量下载</strong> (<code>&gt;5000 bytes/s</code>)</td>
+<td style="text-align:left"><strong>常亮</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>⚙️ <strong>安装运行</strong></p>
+<p>1️⃣ <strong>保存脚本</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /usr/local/bin/wifi-led.sh</span><br></pre></td></tr></table></figure>
+<p>粘贴上面的内容，保存退出（Ctrl+X，按 Y，回车）。</p>
+<p>2️⃣ <strong>给权限</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /usr/local/bin/wifi-led.sh</span><br></pre></td></tr></table></figure>
+<p>3️⃣ <strong>测试</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /usr/local/bin/wifi-led.sh</span><br></pre></td></tr></table></figure>
+<p>用手机连 WiFi 下载个文件，看灯是不是常亮了，按ctrl+c结束脚本。</p>
+<p>4️⃣ <strong>开机自启</strong></p>
+<p>按之前的方法创建 systemd 服务，或者直接加到 <code>/etc/rc.local</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/rc.local</span><br></pre></td></tr></table></figure>
+<p>在 <code>exit 0</code> 前加：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/wifi-led.sh &amp;</span><br></pre></td></tr></table></figure>
+<p><strong><code>&amp;</code></strong> 的作用是：<strong>把命令放到后台去运行</strong>。</p>
+<h4 id="在linux里查看板子型号"><a class="markdownIt-Anchor" href="#在linux里查看板子型号"></a> 在linux里查看板子型号</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /sys/firmware/devicetree/base/model</span><br><span class="line"><span class="comment"># 返回例如</span></span><br><span class="line">&gt;Handsome OpenStick UFI003MB</span><br></pre></td></tr></table></figure>
+<h3 id="cups"><a class="markdownIt-Anchor" href="#cups"></a> cups</h3>
+<h4 id="常用命令"><a class="markdownIt-Anchor" href="#常用命令"></a> 常用命令</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看打印机状态</span></span><br><span class="line">lpstat -p -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 CUPS 服务状态</span></span><br><span class="line">systemctl status cups</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 CUPS 版本</span></span><br><span class="line">cups-config --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有可用命令</span></span><br><span class="line"><span class="built_in">ls</span> /usr/bin/lp* /usr/sbin/lp*</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 CUPS 服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start cups</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止 CUPS 服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl stop cups</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 CUPS 服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart cups</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看实时日志</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">tail</span> -f /var/log/cups/error_log</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">所属目录</th>
+<th style="text-align:left">主要功能</th>
+<th style="text-align:left">常用示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>lp</code></strong></td>
+<td style="text-align:left"><code>/usr/bin</code></td>
+<td style="text-align:left"><strong>提交打印任务</strong>（最常用）</td>
+<td style="text-align:left"><code>lp -d 打印机名 文件.pdf</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpr</code></strong></td>
+<td style="text-align:left"><code>/usr/bin</code></td>
+<td style="text-align:left">另一种提交打印任务的命令</td>
+<td style="text-align:left"><code>lpr -P 打印机名 文件.pdf</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpq</code></strong></td>
+<td style="text-align:left"><code>/usr/bin</code></td>
+<td style="text-align:left"><strong>查看打印队列</strong>（查看等待打印的任务）</td>
+<td style="text-align:left"><code>lpq -a</code>（查看所有队列）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lprm</code></strong></td>
+<td style="text-align:left"><code>/usr/bin</code></td>
+<td style="text-align:left"><strong>取消打印任务</strong></td>
+<td style="text-align:left"><code>lprm 任务ID</code> 或 <code>lprm -</code>（取消所有）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpstat</code></strong></td>
+<td style="text-align:left"><code>/usr/bin</code></td>
+<td style="text-align:left"><strong>显示打印机状态和任务信息</strong></td>
+<td style="text-align:left"><code>lpstat -p -d</code>（查看打印机）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpoptions</code></strong></td>
+<td style="text-align:left"><code>/usr/bin</code></td>
+<td style="text-align:left">设置或查看打印选项</td>
+<td style="text-align:left"><code>lpoptions -d 打印机名</code>（设默认）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpunlock</code></strong></td>
+<td style="text-align:left"><code>/usr/bin</code></td>
+<td style="text-align:left">解锁被锁定的打印机队列</td>
+<td style="text-align:left"><code>lpunlock 打印机名</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpadmin</code></strong></td>
+<td style="text-align:left"><code>/usr/sbin</code></td>
+<td style="text-align:left"><strong>添加、删除或配置打印机</strong>（需root）</td>
+<td style="text-align:left"><code>lpadmin -p 打印机名 -v 设备</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpinfo</code></strong></td>
+<td style="text-align:left"><code>/usr/sbin</code></td>
+<td style="text-align:left">列出可用的打印机驱动和接口</td>
+<td style="text-align:left"><code>lpinfo -v</code>（查看可用连接）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpmove</code></strong></td>
+<td style="text-align:left"><code>/usr/sbin</code></td>
+<td style="text-align:left">将任务从一个队列移到另一个</td>
+<td style="text-align:left"><code>lpmove 任务ID 目标打印机</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>lpc</code></strong></td>
+<td style="text-align:left"><code>/usr/sbin</code></td>
+<td style="text-align:left">控制打印机状态（启动/停止/启用）</td>
+<td style="text-align:left"><code>lpc status</code>（查看状态）</td>
+</tr>
+</tbody>
+</table>
+<p>在 <code>lp</code> 命令中，复杂的打印选项主要通过 <code>-o</code> 参数来指定。根据 CUPS 的官方文档，以下是常用的复杂打印选项 ：</p>
+<h4 id="页面布局与排版选项"><a class="markdownIt-Anchor" href="#页面布局与排版选项"></a> 页面布局与排版选项</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">示例值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-o number-up=N</code></td>
+<td style="text-align:left">每张纸上打印N页</td>
+<td style="text-align:left"><code>2</code>, <code>4</code>, <code>6</code>, <code>9</code>, <code>16</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o page-border=border</code></td>
+<td style="text-align:left">每页添加边框</td>
+<td style="text-align:left"><code>single</code>（单线）, <code>double</code>（双线）, <code>single-thick</code>（粗单线）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o number-up-layout=layout</code></td>
+<td style="text-align:left">多页排列顺序</td>
+<td style="text-align:left"><code>lrtb</code>（从左到右，从上到下）, <code>tblr</code>（从上到下，从左到右）等</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o page-set=set</code></td>
+<td style="text-align:left">打印特定页面集</td>
+<td style="text-align:left"><code>odd</code>（奇数页）, <code>even</code>（偶数页）, <code>booklet</code>（小册子）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o outputorder=reverse</code></td>
+<td style="text-align:left">逆序打印</td>
+<td style="text-align:left"><code>reverse</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o mirror</code></td>
+<td style="text-align:left">镜像打印</td>
+<td style="text-align:left">（无值，直接使用）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="双面与方向选项"><a class="markdownIt-Anchor" href="#双面与方向选项"></a> 双面与方向选项</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">示例值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-o sides=option</code></td>
+<td style="text-align:left">单面/双面设置</td>
+<td style="text-align:left"><code>one-sided</code>（单面）, <code>two-sided-long-edge</code>（双面长边）, <code>two-sided-short-edge</code>（双面短边）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o orientation-requested=N</code></td>
+<td style="text-align:left">打印方向</td>
+<td style="text-align:left"><code>3</code>（纵向）, <code>4</code>（横向逆时针）, <code>5</code>（横向顺时针）, <code>6</code>（反向纵向）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o landscape</code></td>
+<td style="text-align:left">横向打印（简化版）</td>
+<td style="text-align:left">（无值，直接使用）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="纸张与质量选项"><a class="markdownIt-Anchor" href="#纸张与质量选项"></a> 纸张与质量选项</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">示例值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-o media=size</code></td>
+<td style="text-align:left">纸张大小</td>
+<td style="text-align:left"><code>A4</code>, <code>Letter</code>, <code>Legal</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o media=size,type</code></td>
+<td style="text-align:left">纸张大小和类型</td>
+<td style="text-align:left"><code>A4,Transparency</code>（A4透明胶片）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o media=source</code></td>
+<td style="text-align:left">纸盒来源</td>
+<td style="text-align:left"><code>Upper</code>（上纸盒）, <code>Lower</code>（下纸盒）, <code>MultiPurpose</code>（多功能纸盒）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o print-quality=N</code></td>
+<td style="text-align:left">打印质量</td>
+<td style="text-align:left"><code>3</code>（草稿）, <code>4</code>（标准）, <code>5</code>（最佳）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="缩放与适配选项"><a class="markdownIt-Anchor" href="#缩放与适配选项"></a> 缩放与适配选项</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">示例值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-o fit-to-page</code></td>
+<td style="text-align:left">缩放以适合页面</td>
+<td style="text-align:left">（无值，直接使用）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o scaling=N</code></td>
+<td style="text-align:left">缩放百分比</td>
+<td style="text-align:left"><code>75</code>（缩放75%）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="其他选项"><a class="markdownIt-Anchor" href="#其他选项"></a> 其他选项</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">示例值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-o collate=true</code></td>
+<td style="text-align:left">逐份打印</td>
+<td style="text-align:left"><code>true</code> 或 <code>false</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o job-sheets=name</code></td>
+<td style="text-align:left">添加封面页</td>
+<td style="text-align:left"><code>standard</code>, <code>classified</code>, <code>confidential</code>, <code>topsecret</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o page-ranges=page-list</code></td>
+<td style="text-align:left">指定页码范围</td>
+<td style="text-align:left"><code>1-5</code>, <code>1,3,5-7</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o job-priority=priority</code></td>
+<td style="text-align:left">任务优先级</td>
+<td style="text-align:left"><code>1</code>（最低）到 <code>100</code>（最高）</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <!-- 
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="" title="" target="_blank" rel="external"></a>
+    </li>
+     -->
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/IMOUYO" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.gif" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/IMOUYO" target="_blank"><span class="text-dark">makabaka</span><small class="ml-1x"></small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2026/02/22/Questions/" title="Questions"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+<!-- 测试标记：看这个会不会出现在生成的HTML中 -->
+<!-- PARTIAL_IMAGE_FIXER_START -->
+<script>
+    (function() {
+  // 配置选项
+  const config = {
+    // 需要替换的路径规则
+    rules: [
+      {
+        pattern: '^随身wifi刷linux/',           // 匹配以 /images/ 开头的路径
+        replace: ''       // 替换为 /assets/images/
+      },
+      {
+        pattern: '^%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/',   //解决中文问题
+        replace: ''
+      }
+    ],
+    // 排除外部链接
+    excludeExternal: true,
+    // 是否显示调试信息
+    debug: true
+  };
+  
+  // 执行修改
+  function fixImagePaths() {
+    const images = document.getElementsByTagName('img');
+    
+    for (let img of images) {
+      let src = img.getAttribute('src');
+      
+      // 跳过空值
+      if (!src) continue;
+      
+      // 跳过外部链接（如果配置排除）
+      if (config.excludeExternal && src.match(/^(https?:)?\/\//)) continue;
+      
+      let originalSrc = src;
+      
+      // 应用所有替换规则
+      for (let rule of config.rules) {
+        const regex = new RegExp(rule.pattern);
+        if (regex.test(src)) {
+          src = src.replace(regex, rule.replace);
+        }
+      }
+      
+      // 如果路径改变了，更新图片 src
+      if (src !== originalSrc) {
+        img.src = src;
+        if (config.debug) {
+          console.log('✅ 图片路径已修改:', originalSrc, '→', src);
+        }
+      }
+    }
+  }
+  
+  // 在多个时机执行，确保修改生效
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixImagePaths);
+  } else {
+    fixImagePaths();
+  }
+  
+  // 如果是 SPA 或有动态加载的内容，可以监听 DOM 变化
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length) {
+        fixImagePaths();
+      }
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+})();
+</script>
+<!-- PARTIAL_IMAGE_FIXER_END -->
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23li41op8ra6ULwVKH',
+    clientSecret: '8637d8e4da9dee4d4ab44fff1c11f554fe5251f7',
+    repo: 'gitalk-comments',
+    owner: 'IMOUYO',
+    admin: ['IMOUYO'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true'
+  })
+  gitalk.render('comments')
+  </script>
+      
+
+
+
+
+
+
+
+  <script src="/js/toc.js"></script>
+</body>
+</html>

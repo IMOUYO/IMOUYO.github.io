@@ -1,3 +1,5 @@
+https://imouyo.github.io/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/
+https://imouyo.github.io/2026/02/22/Questions/
 https://imouyo.github.io/2026/02/21/electron%E5%AD%A6%E4%B9%A0/
 https://imouyo.github.io/2026/02/19/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/
 https://imouyo.github.io/2026/02/15/EJS/
@@ -17,6 +19,8 @@ https://imouyo.github.io/tags/MySQL/
 https://imouyo.github.io/tags/java/
 https://imouyo.github.io/tags/issue/
 https://imouyo.github.io/tags/%E5%AD%A6%E4%B9%A0/
+https://imouyo.github.io/tags/Question/
+https://imouyo.github.io/tags/DIY/
 https://imouyo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://imouyo.github.io/categories/%E6%8A%80%E6%9C%AF/
 https://imouyo.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/
