@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Questions | Hexo</title>
-  <meta name="description" content="如何解决css样式默认html有内外边距问题 使用css重置 123456789html &#123;    box-sizing: border-box;		&#x2F;* 以外边距限制盒子尺寸 *&#x2F;&#125;*,*::before,*::after &#123;    box-sizing: inherit;    margin: 0;&#125;  网页字体单位px、em、%、rem、pt、vm、">
+  <title>OpenStick安装Jellyfin | Hexo</title>
+  <meta name="description" content="123456789# 进入你的 USB 设备（假设还是原来的路径）cd &#x2F;mnt&#x2F;usb# 创建 Jellyfin 目录mkdir -p jellyfin&#x2F;&#123;config,cache&#125;mkdir -p media&#x2F;&#123;movies,tv,music&#125;# 查看当前用户 ID（等下要用）id">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Questions">
-<meta property="og:url" content="https://imouyo.github.io/2026/02/22/Questions/index.html">
+<meta property="og:title" content="OpenStick安装Jellyfin">
+<meta property="og:url" content="https://imouyo.github.io/2026/02/25/OpenStick%E5%AE%89%E8%A3%85Jellyfin/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="如何解决css样式默认html有内外边距问题 使用css重置 123456789html &#123;    box-sizing: border-box;		&#x2F;* 以外边距限制盒子尺寸 *&#x2F;&#125;*,*::before,*::after &#123;    box-sizing: inherit;    margin: 0;&#125;  网页字体单位px、em、%、rem、pt、vm、">
+<meta property="og:description" content="123456789# 进入你的 USB 设备（假设还是原来的路径）cd &#x2F;mnt&#x2F;usb# 创建 Jellyfin 目录mkdir -p jellyfin&#x2F;&#123;config,cache&#125;mkdir -p media&#x2F;&#123;movies,tv,music&#125;# 查看当前用户 ID（等下要用）id">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2026-02-22T09:16:57.000Z">
-<meta property="article:modified_time" content="2026-02-24T18:22:39.818Z">
+<meta property="article:published_time" content="2026-02-24T16:06:20.000Z">
+<meta property="article:modified_time" content="2026-02-24T16:07:32.676Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Question">
+<meta property="article:tag" content="DIY">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://imouyo.github.io/2026/02/22/Questions/index.html">
+  <link rel="canonical" href="https://imouyo.github.io/2026/02/25/OpenStick%E5%AE%89%E8%A3%85Jellyfin/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -430,14 +430,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Questions" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-OpenStick安装Jellyfin" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Questions
+      OpenStick安装Jellyfin
     </h1>
   
 
@@ -445,158 +445,27 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2026/02/22/Questions/" class="article-date">
-	  <time datetime="2026-02-22T09:16:57.000Z" itemprop="datePublished">2026-02-22</time>
+	<a href="/2026/02/25/OpenStick%E5%AE%89%E8%A3%85Jellyfin/" class="article-date">
+	  <time datetime="2026-02-24T16:06:20.000Z" itemprop="datePublished">2026-02-25</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Question/" rel="tag">Question</a>
+	<a class="article-tag-link-link" href="/tags/DIY/" rel="tag">DIY</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/22/Questions/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/25/OpenStick%E5%AE%89%E8%A3%85Jellyfin/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="如何解决css样式默认html有内外边距问题"><a class="markdownIt-Anchor" href="#如何解决css样式默认html有内外边距问题"></a> 如何解决css样式默认html有内外边距问题</h3>
-<p>使用css重置</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;		<span class="comment">/* 以外边距限制盒子尺寸 */</span></span><br><span class="line">&#125;</span><br><span class="line">*,</span><br><span class="line">*<span class="selector-pseudo">::before</span>,</span><br><span class="line">*<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: inherit;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="网页字体单位px-em-rem-pt-vm-vh介绍"><a class="markdownIt-Anchor" href="#网页字体单位px-em-rem-pt-vm-vh介绍"></a> 网页字体单位px、em、%、rem、pt、vm、vh介绍</h3>
-<table>
-<thead>
-<tr>
-<th>单位</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>px</td>
-<td>1像素</td>
-</tr>
-<tr>
-<td>em</td>
-<td>字符宽度的倍数,通常1em=16px</td>
-</tr>
-<tr>
-<td>%</td>
-<td>百分与“em”类似，1em=100%。当前的字体大小等于100%,字体大小也是受父类影响</td>
-</tr>
-<tr>
-<td>rem</td>
-<td>只相对根目录即HTML元素中字体大小的相对长度单位</td>
-</tr>
-<tr>
-<td>pt</td>
-<td>磅，px = pt * DPI / 72（一般电脑屏幕的打印精度是96dpi）</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dufs --allow-all --render-try-index --port 5000 --log-file /root/printbox/dufs.log</span><br><span class="line"><span class="built_in">cat</span> <span class="string">&quot;./options/新建 Microsoft Word 文档.docx.json&quot;</span> | jq</span><br><span class="line">scp ./tupian.pdf root@192.168.2.189:/root/printbox/uploads</span><br></pre></td></tr></table></figure>
-<h3 id="查看debian系统架构"><a class="markdownIt-Anchor" href="#查看debian系统架构"></a> 查看debian系统架构</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -m		<span class="comment"># 或者 arch</span></span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th><strong>X64</strong></th>
-<th><code>x86_64</code></th>
-<th>普通电脑、服务器、笔记本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Armv7</strong></td>
-<td><code>armv7l</code></td>
-<td>树莓派2/3、旧手机、电视盒子</td>
-</tr>
-<tr>
-<td><strong>Arm64</strong></td>
-<td><code>aarch64</code></td>
-<td>树莓派3B+/4/5、新手机、Mac M1、你的 OpenStick</td>
-</tr>
-</tbody>
-</table>
-<h3 id="debian系统测试网络速率"><a class="markdownIt-Anchor" href="#debian系统测试网络速率"></a> debian系统测试网络速率</h3>
-<h4 id="测试外网速度互联网连接"><a class="markdownIt-Anchor" href="#测试外网速度互联网连接"></a> 📶 测试外网速度（互联网连接）</h4>
-<p>如果你只是想看看设备访问互联网的快慢，用 <code>speedtest-cli</code> 最方便。</p>
-<ol>
-<li>
-<p><strong>安装</strong>：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install speedtest-cli -y</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>运行测试</strong>：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">speedtest-cli</span><br></pre></td></tr></table></figure>
-<p>它会自动找到最近的服务器，测试后显示你的下载和上传速度（默认为比特每秒）。如果想看简洁版结果，可以加上 <code>--simple</code> 参数。</p>
-</li>
-</ol>
-<h4 id="测试局域网速度内网传输"><a class="markdownIt-Anchor" href="#测试局域网速度内网传输"></a> 🌐 测试局域网速度（内网传输）</h4>
-<p>这个方法能更纯粹地反映你的设备、网线、交换机和另一台设备之间的最大传输能力，不受互联网波动影响。你需要<strong>两台设备</strong>：一台当服务器（你的 Debian 设备），另一台当客户端（比如你的电脑）。推荐使用 <code>iperf3</code>。</p>
-<h5 id="在你的-debian-设备上作为服务端"><a class="markdownIt-Anchor" href="#在你的-debian-设备上作为服务端"></a> 在你的 Debian 设备上（作为服务端）：</h5>
-<ol>
-<li>
-<p><strong>安装 <code>iperf3</code></strong>：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install iperf3 -y</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>启动服务端</strong>：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iperf3 -s</span><br></pre></td></tr></table></figure>
-<p>这会开启 <code>iperf3</code> 的服务模式，默认在 5201 端口监听客户端的连接。</p>
-</li>
-</ol>
-<h5 id="在你的电脑上作为客户端假设-ip-是-1921681100"><a class="markdownIt-Anchor" href="#在你的电脑上作为客户端假设-ip-是-1921681100"></a> 在你的电脑上（作为客户端，假设 IP 是 192.168.1.100）：</h5>
-<ol>
-<li>
-<p><strong>也安装 <code>iperf3</code></strong> (Windows 可下载 exe，macOS 用 <code>brew install iperf3</code>)。</p>
-</li>
-<li>
-<p><strong>运行客户端测试</strong>：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iperf3 -c 192.168.1.100</span><br></pre></td></tr></table></figure>
-<p>测试默认进行 10 秒，结束后会显示带宽、传输数据量等关键信息。</p>
-<p><code>iperf3</code>常用命令</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>TCP 下载</th>
-<th><code>iperf3.exe -c &lt;server&gt; -P 10 -4 -R</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TCP 上传</td>
-<td><code>iperf3.exe -c &lt;server&gt; -P 10 -4</code></td>
-</tr>
-<tr>
-<td>UDP 下载</td>
-<td><code>iperf3.exe -c &lt;server&gt; -u -P 10 -4 -R</code></td>
-</tr>
-<tr>
-<td>UDP 上传</td>
-<td><code>iperf3.exe -c &lt;server&gt; -u -P 10 -4</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="docker命令"><a class="markdownIt-Anchor" href="#docker命令"></a> docker命令</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理失败的拉取</span></span><br><span class="line">docker system prune -a -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 看 Docker 信息 grep为搜索指定文本所在行</span></span><br><span class="line">docker info | grep <span class="string">&quot;Docker Root Dir&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 1. 查看 Docker 整体磁盘使用</span></span><br><span class="line">docker system <span class="built_in">df</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 查看详细空间占用</span></span><br><span class="line">docker system <span class="built_in">df</span> -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 查看实际文件占用的磁盘空间</span></span><br><span class="line"><span class="built_in">du</span> -sh /var/lib/docker</span><br><span class="line"><span class="built_in">du</span> -sh /var/lib/containerd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 查看所有镜像大小</span></span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 查看运行中容器的资源占用</span></span><br><span class="line">docker stats --no-stream</span><br></pre></td></tr></table></figure>
-<h3 id="docker配置镜像源"><a class="markdownIt-Anchor" href="#docker配置镜像源"></a> docker配置镜像源</h3>
-<p><strong>第一步：创建/编辑 daemon.json 配置文件</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/docker</span><br><span class="line"><span class="built_in">sudo</span> nano /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
-<p><strong>第二步：添加镜像加速器地址</strong></p>
-<p>将以下内容复制粘贴进去（推荐使用多个镜像源作为备选）：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://hub-mirror.c.163.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://registry.docker-cn.com&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<p><strong>第三步：重启docker</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br></pre></td></tr></table></figure>
-<h3 id="linux命令"><a class="markdownIt-Anchor" href="#linux命令"></a> linux命令</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看服务状态</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl status &lt;服务名称&gt;</span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start &lt;服务名称&gt;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入你的 USB 设备（假设还是原来的路径）</span></span><br><span class="line"><span class="built_in">cd</span> /mnt/usb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 Jellyfin 目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p jellyfin/&#123;config,cache&#125;</span><br><span class="line"><span class="built_in">mkdir</span> -p media/&#123;movies,tv,music&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前用户 ID（等下要用）</span></span><br><span class="line"><span class="built_in">id</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -652,13 +521,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/" title="随身wifi刷linux"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2026/02/21/electron%E5%AD%A6%E4%B9%A0/" title="electron学习"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2026/02/24/OpenStick-ARM%E8%AE%BE%E5%A4%87%E5%A4%96%E6%8E%A5%E7%A1%AC%E7%9B%98%E7%9B%92%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/" title="OpenStick/ARM设备外接硬盘盒完全攻略"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -686,11 +551,11 @@
     // 需要替换的路径规则
     rules: [
       {
-        pattern: '^Questions/',           // 匹配以 /images/ 开头的路径
+        pattern: '^OpenStick安装Jellyfin/',           // 匹配以 /images/ 开头的路径
         replace: ''       // 替换为 /assets/images/
       },
       {
-        pattern: '^Questions/',   //解决中文问题
+        pattern: '^OpenStick%E5%AE%89%E8%A3%85Jellyfin/',   //解决中文问题
         replace: ''
       }
     ],
