@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>离散数学 | Hexo</title>
+  <meta name="description" content="命题 是陈述句且只有一种结果，要么为T，要么为F  逻辑连接词  1、 若P是一个命题，则非P是一个新命题 2、 类似于电路中的与电路  3、  类似于电路中的或电路（两种条件可以同时发生）  4、 类似于电路中的异或电路（两种条件不可以同时发生）  5、   上两种是规定  6、 类似于电路中的异或非电路  命题公式和真值表     名词 本质 是否可变 举例     命题常项 真值本身 固定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散数学">
+<meta property="og:url" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="命题 是陈述句且只有一种结果，要么为T，要么为F  逻辑连接词  1、 若P是一个命题，则非P是一个新命题 2、 类似于电路中的与电路  3、  类似于电路中的或电路（两种条件可以同时发生）  4、 类似于电路中的异或电路（两种条件不可以同时发生）  5、   上两种是规定  6、 类似于电路中的异或非电路  命题公式和真值表     名词 本质 是否可变 举例     命题常项 真值本身 固定">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305170617307.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305170914853.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171132661.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171409452.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171446419.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171700577.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171725780.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305172106126.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305173703385.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305173754907.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305174006957.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305174343589.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305174355548.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305175253344.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305175556971.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305175812068.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305180112717.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305180435628.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305180556638.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305180647352.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305220417608.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305220508439.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305221834881.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305220658212.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305220805388.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305221358265-17727200499221.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305221550788.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305222039696.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305222139430.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305222205167.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305222259633.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223845727.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223236894.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223357601.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223650327.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223946122.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224109628.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224248115.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224424556.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224455702.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224907114.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224639969.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224751742.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224843347.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224948526.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225105355.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225118814.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225200368.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225130647.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225434934.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225657816.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225750498.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305230124241.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305230216052.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305230620182.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305230944558.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305231350992.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305231648988.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305232042746.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305232234362.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305232436536-17727243092023.png">
+<meta property="og:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305232847728.png">
+<meta property="article:published_time" content="2026-03-05T09:09:03.000Z">
+<meta property="article:modified_time" content="2026-03-05T15:29:46.514Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305170617307.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://imouyo.github.io/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/IMOUYO" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.gif" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">makabaka</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Earth</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+<div>
+  <h3 id="catalog"></h3>
+  <div id="toc"></div>
+</div>
+
+<script>
+(function() {
+  // ===== 生成目录 =====
+  function buildToc() {
+    // var article = document.querySelector('.post-content, .article-content, main');
+    var article = document.querySelector('article.thisIsAAnchor');
+    if (!article) return;
+    
+    document.getElementById('catalog').innerHTML = '目录';
+    var headings = article.querySelectorAll('h1, h2, h3, h4');
+    if (headings.length === 0) {
+      document.getElementById('toc').innerHTML = '<p>无标题</p>';
+      return;
+    }
+    
+    var toc = document.getElementById('toc');
+    var ul = document.createElement('ul');
+    
+    headings.forEach(function(heading, index) {
+      // 生成唯一ID
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      a.style.marginLeft = (parseInt(heading.tagName[1]) - 1) * 12 + 'px';
+      a.style.display = 'inline-block';
+      
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    
+    toc.innerHTML = '';
+    toc.appendChild(ul);
+    return headings;
+  }
+  
+  // ===== 绑定点击事件 =====
+  function bindClick() {
+    document.getElementById('toc').addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (link) {
+        e.preventDefault();
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          history.pushState(null, null, link.getAttribute('href'));
+        }
+      }
+    });
+  }
+  
+  // ===== 滚动高亮 =====
+  function highlightActive() {
+  var tocLinks = document.querySelectorAll('#toc a');
+  if (tocLinks.length === 0) return;
+  
+  // 默认高亮第一个
+  tocLinks[0].style.fontWeight = 'bold';
+  tocLinks[0].style.color = '#0066cc';
+  tocLinks[0].style.borderLeft = '3px solid #0066cc';
+  tocLinks[0].style.paddingLeft = '8px';
+  
+  // 为每个目录链接添加点击事件
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // 移除所有链接的高亮样式
+      tocLinks.forEach(function(l) {
+        l.style.fontWeight = 'normal';
+        l.style.color = '';
+        l.style.borderLeft = '';
+        l.style.paddingLeft = '';
+      });
+      
+      // 为当前点击的链接添加高亮样式
+      this.style.fontWeight = 'bold';
+      this.style.color = '#0066cc';
+      this.style.borderLeft = '3px solid #0066cc';
+      this.style.paddingLeft = '8px';
+    });
+  });
+}
+  
+  // ===== 初始化 =====
+  function init() {
+    buildToc();
+    bindClick();
+    highlightActive();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<style>
+/* 极简样式，可删除 */
+#toc ul { list-style: none; padding-left: 0; }
+#toc li { margin: 5px 0; }
+#toc a { text-decoration: none; color: #333; }
+#toc a:hover { color: #0066cc; }
+</style>
+
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!联系我wangyimail20230608@163.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/" rel="tag">DIY</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Question/" rel="tag">Question</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/issue/" rel="tag">issue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" rel="tag">数据库查询</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/DIY/" style="font-size: 14px;">DIY</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/Question/" style="font-size: 13px;">Question</a> <a href="/tags/issue/" style="font-size: 13px;">issue</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 13px;">学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" style="font-size: 13px;">数据库查询</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a><span class="archive-list-count">15</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="title">离散数学</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-03-05T09:09:03.000Z" itemprop="datePublished">2026-03-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/25/%E5%88%9B%E8%88%9FC3%E5%88%B7%E6%9C%BA/" class="title">创舟C3刷机</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-25T11:56:51.000Z" itemprop="datePublished">2026-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/25/OpenStick%E5%AE%89%E8%A3%85Jellyfin/" class="title">OpenStick安装Jellyfin</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-24T16:06:20.000Z" itemprop="datePublished">2026-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/24/OpenStick-ARM%E8%AE%BE%E5%A4%87%E5%A4%96%E6%8E%A5%E7%A1%AC%E7%9B%98%E7%9B%92%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/" class="title">OpenStick/ARM设备外接硬盘盒完全攻略</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-24T15:19:28.000Z" itemprop="datePublished">2026-02-24</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/" class="title">随身wifi刷linux</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-22T14:45:13.000Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-离散数学" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      离散数学
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="article-date">
+	  <time datetime="2026-03-05T09:09:03.000Z" itemprop="datePublished">2026-03-05</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="命题"><a class="markdownIt-Anchor" href="#命题"></a> 命题</h3>
+<p>是陈述句且只有一种结果，要么为T，要么为F</p>
+<h3 id="逻辑连接词"><a class="markdownIt-Anchor" href="#逻辑连接词"></a> 逻辑连接词</h3>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305170617307.png" alt="image-20260305170617307" /></p>
+<p>1、 若P是一个命题，则非P是一个新命题</p>
+<p>2、 类似于电路中的与电路</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305170914853.png" alt="image-20260305170914853" /></p>
+<p>3、  类似于电路中的或电路（两种条件可以同时发生）</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171132661.png" alt="image-20260305171132661" /></p>
+<p>4、 类似于电路中的异或电路（两种条件不可以同时发生）</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171409452.png" alt="image-20260305171409452" /></p>
+<p>5、</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171446419.png" alt="image-20260305171446419" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171700577.png" alt="image-20260305171700577" /></p>
+<p>上两种是规定</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305171725780.png" alt="image-20260305171725780" /></p>
+<p>6、 类似于电路中的异或非电路</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305172106126.png" alt="image-20260305172106126" /></p>
+<p>命题公式和真值表</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305173703385.png" alt="image-20260305173703385" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名词</th>
+<th style="text-align:left">本质</th>
+<th style="text-align:left">是否可变</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">命题常项</td>
+<td style="text-align:left">真值本身</td>
+<td style="text-align:left">固定</td>
+<td style="text-align:left"><code>T</code>, <code>F</code></td>
+</tr>
+<tr>
+<td style="text-align:left">常值命题</td>
+<td style="text-align:left">具体命题</td>
+<td style="text-align:left">固定真值</td>
+<td style="text-align:left">“3 &gt; 2”</td>
+</tr>
+<tr>
+<td style="text-align:left">命题变元</td>
+<td style="text-align:left">命题的占位符</td>
+<td style="text-align:left">可被赋值</td>
+<td style="text-align:left"><code>P</code>, <code>Q</code>, <code>R</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305173754907.png" alt="image-20260305173754907" />！！！<strong>（注意在3中没有异或，因为异或是复合运算)</strong></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo>⊕</mo><mi>Q</mi><mo>≡</mo><mo stretchy="false">(</mo><mi>P</mi><mo>∧</mo><mi mathvariant="normal">¬</mi><mi>Q</mi><mo stretchy="false">)</mo><mo>∨</mo><mo stretchy="false">(</mo><mi mathvariant="normal">¬</mi><mi>P</mi><mo>∧</mo><mi>Q</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P⊕Q≡(P∧¬Q)∨(¬P∧Q)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal">Q</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mclose">)</span></span></span></span></span></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305174006957.png" alt="image-20260305174006957" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305174343589.png" alt="image-20260305174343589" /></p>
+<p>例如：</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305174355548.png" alt="image-20260305174355548" /></p>
+<hr />
+<h3 id="命题公式等价"><a class="markdownIt-Anchor" href="#命题公式等价"></a> 命题公式等价</h3>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305175253344.png" alt="image-20260305175253344" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305175556971.png" alt="image-20260305175556971" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305175812068.png" alt="image-20260305175812068" /></p>
+<p>若有不懂得可画真值表，左右两边的真值表结果是一样的</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305180112717.png" alt="image-20260305180112717" /></p>
+<p>置换定律：</p>
+<ul>
+<li>已知 2+2=4</li>
+<li>在表达式 (2+2)×3 中，把 2+2换成 4</li>
+<li>得到 4×3，结果与原来相等。</li>
+</ul>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305180435628.png" alt="image-20260305180435628" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305180556638.png" alt="image-20260305180556638" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305180647352.png" alt="image-20260305180647352" /></p>
+<hr />
+<p>重言式</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305220417608.png" alt="image-20260305220417608" /></p>
+<p>重言蕴涵式</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305220508439.png" alt="image-20260305220508439" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305221834881.png" alt="image-20260305221834881" /></p>
+<p>重言蕴涵式证明方法：</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305220658212.png" alt="image-20260305220658212" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305220805388.png" alt="image-20260305220805388" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305221358265-17727200499221.png" alt="了解有个印象就可以" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305221550788.png" alt="image-20260305221550788" /></p>
+<hr />
+<h3 id="析取范式与合取范式"><a class="markdownIt-Anchor" href="#析取范式与合取范式"></a> 析取范式与合取范式</h3>
+<p>析取范式：</p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305222039696.png" alt="image-20260305222039696" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305222139430.png" alt="image-20260305222139430" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305222205167.png" alt="image-20260305222205167" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305222259633.png" alt="image-20260305222259633" /></p>
+<hr />
+<h3 id="主析取范式"><a class="markdownIt-Anchor" href="#主析取范式"></a> 主析取范式</h3>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223845727.png" alt="image-20260305223845727" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223236894.png" alt="image-20260305223236894" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223357601.png" alt="image-20260305223357601" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223650327.png" alt="image-20260305223650327" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305223946122.png" alt="image-20260305223946122" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224109628.png" alt="image-20260305224109628" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224248115.png" alt="image-20260305224248115" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224424556.png" alt="image-20260305224424556" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224455702.png" alt="image-20260305224455702" /></p>
+<hr />
+<h3 id="主合取范式"><a class="markdownIt-Anchor" href="#主合取范式"></a> 主合取范式</h3>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224907114.png" alt="image-20260305224907114" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224639969.png" alt="image-20260305224639969" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224751742.png" alt="image-20260305224751742" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224843347.png" alt="image-20260305224843347" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305224948526.png" alt="image-20260305224948526" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225105355.png" alt="image-20260305225105355" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225118814.png" alt="image-20260305225118814" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225200368.png" alt="image-20260305225200368" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225130647.png" alt="image-20260305225130647" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225434934.png" alt="image-20260305225434934" /></p>
+<hr />
+<h3 id="命题逻辑推理"><a class="markdownIt-Anchor" href="#命题逻辑推理"></a> 命题逻辑推理</h3>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225657816.png" alt="image-20260305225657816" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305225750498.png" alt="image-20260305225750498" /></p>
+<h4 id="直接推理"><a class="markdownIt-Anchor" href="#直接推理"></a> 直接推理</h4>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305230124241.png" alt="image-20260305230124241" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305230216052.png" alt="image-20260305230216052" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305230620182.png" alt="image-20260305230620182" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305230944558.png" alt="image-20260305230944558" /></p>
+<h4 id="间接推理"><a class="markdownIt-Anchor" href="#间接推理"></a> 间接推理</h4>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305231350992.png" alt="image-20260305231350992" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305231648988.png" alt="image-20260305231648988" /></p>
+<h4 id="反证法"><a class="markdownIt-Anchor" href="#反证法"></a> 反证法</h4>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305232042746.png" alt="image-20260305232042746" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305232234362.png" alt="image-20260305232234362" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305232436536-17727243092023.png" alt="不懂" /></p>
+<p><img src="%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/image-20260305232847728.png" alt="image-20260305232847728" /></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <!-- 
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="" title="" target="_blank" rel="external"></a>
+    </li>
+     -->
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/IMOUYO" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.gif" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/IMOUYO" target="_blank"><span class="text-dark">makabaka</span><small class="ml-1x"></small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2026/02/25/%E5%88%9B%E8%88%9FC3%E5%88%B7%E6%9C%BA/" title="创舟C3刷机"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+<!-- 测试标记：看这个会不会出现在生成的HTML中 -->
+<!-- PARTIAL_IMAGE_FIXER_START -->
+<script>
+    (function() {
+  // 配置选项
+  const config = {
+    // 需要替换的路径规则
+    rules: [
+      {
+        pattern: '^离散数学/',           // 匹配以 /images/ 开头的路径
+        replace: ''       // 替换为 /assets/images/
+      },
+      {
+        pattern: '^%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/',   //解决中文问题
+        replace: ''
+      }
+    ],
+    // 排除外部链接
+    excludeExternal: true,
+    // 是否显示调试信息
+    debug: true
+  };
+  
+  // 执行修改
+  function fixImagePaths() {
+    const images = document.getElementsByTagName('img');
+    
+    for (let img of images) {
+      let src = img.getAttribute('src');
+      
+      // 跳过空值
+      if (!src) continue;
+      
+      // 跳过外部链接（如果配置排除）
+      if (config.excludeExternal && src.match(/^(https?:)?\/\//)) continue;
+      
+      let originalSrc = src;
+      
+      // 应用所有替换规则
+      for (let rule of config.rules) {
+        const regex = new RegExp(rule.pattern);
+        if (regex.test(src)) {
+          src = src.replace(regex, rule.replace);
+        }
+      }
+      
+      // 如果路径改变了，更新图片 src
+      if (src !== originalSrc) {
+        img.src = src;
+        if (config.debug) {
+          console.log('✅ 图片路径已修改:', originalSrc, '→', src);
+        }
+      }
+    }
+  }
+  
+  // 在多个时机执行，确保修改生效
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixImagePaths);
+  } else {
+    fixImagePaths();
+  }
+  
+  // 如果是 SPA 或有动态加载的内容，可以监听 DOM 变化
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length) {
+        fixImagePaths();
+      }
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+})();
+</script>
+<!-- PARTIAL_IMAGE_FIXER_END -->
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23li41op8ra6ULwVKH',
+    clientSecret: '8637d8e4da9dee4d4ab44fff1c11f554fe5251f7',
+    repo: 'gitalk-comments',
+    owner: 'IMOUYO',
+    admin: ['IMOUYO'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true'
+  })
+  gitalk.render('comments')
+  </script>
+      
+
+
+
+
+
+
+
+  <script src="/js/toc.js"></script>
+</body>
+</html>

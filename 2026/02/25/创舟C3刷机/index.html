@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>创舟C3刷机 | Hexo</title>
+  <meta name="description" content="a 今天突然发现创舟C3的AV口后面有个隐藏的按钮，之前苦于没有找到短接口，打算试试这个隐藏按钮    测试方案 操作步骤 预期成功标志 如果成功，意味着什么     方案A：测试能否进入FEL模式（线刷） 1. 盒子完全断电。 2. 用双公头USB线连接盒子和电脑（只连USB，不连电源）。 3. 按住这个隐藏按钮不放。 4. 保持按住，给盒子插上12V电源。 5. 观察电脑设备管理器。 电脑出现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创舟C3刷机">
+<meta property="og:url" content="https://imouyo.github.io/2026/02/25/%E5%88%9B%E8%88%9FC3%E5%88%B7%E6%9C%BA/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="a 今天突然发现创舟C3的AV口后面有个隐藏的按钮，之前苦于没有找到短接口，打算试试这个隐藏按钮    测试方案 操作步骤 预期成功标志 如果成功，意味着什么     方案A：测试能否进入FEL模式（线刷） 1. 盒子完全断电。 2. 用双公头USB线连接盒子和电脑（只连USB，不连电源）。 3. 按住这个隐藏按钮不放。 4. 保持按住，给盒子插上12V电源。 5. 观察电脑设备管理器。 电脑出现">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-25T11:56:51.000Z">
+<meta property="article:modified_time" content="2026-03-02T16:10:39.206Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://imouyo.github.io/2026/02/25/%E5%88%9B%E8%88%9FC3%E5%88%B7%E6%9C%BA/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/IMOUYO" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.gif" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">makabaka</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Earth</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+<div>
+  <h3 id="catalog"></h3>
+  <div id="toc"></div>
+</div>
+
+<script>
+(function() {
+  // ===== 生成目录 =====
+  function buildToc() {
+    // var article = document.querySelector('.post-content, .article-content, main');
+    var article = document.querySelector('article.thisIsAAnchor');
+    if (!article) return;
+    
+    document.getElementById('catalog').innerHTML = '目录';
+    var headings = article.querySelectorAll('h1, h2, h3, h4');
+    if (headings.length === 0) {
+      document.getElementById('toc').innerHTML = '<p>无标题</p>';
+      return;
+    }
+    
+    var toc = document.getElementById('toc');
+    var ul = document.createElement('ul');
+    
+    headings.forEach(function(heading, index) {
+      // 生成唯一ID
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      a.style.marginLeft = (parseInt(heading.tagName[1]) - 1) * 12 + 'px';
+      a.style.display = 'inline-block';
+      
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    
+    toc.innerHTML = '';
+    toc.appendChild(ul);
+    return headings;
+  }
+  
+  // ===== 绑定点击事件 =====
+  function bindClick() {
+    document.getElementById('toc').addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (link) {
+        e.preventDefault();
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          history.pushState(null, null, link.getAttribute('href'));
+        }
+      }
+    });
+  }
+  
+  // ===== 滚动高亮 =====
+  function highlightActive() {
+  var tocLinks = document.querySelectorAll('#toc a');
+  if (tocLinks.length === 0) return;
+  
+  // 默认高亮第一个
+  tocLinks[0].style.fontWeight = 'bold';
+  tocLinks[0].style.color = '#0066cc';
+  tocLinks[0].style.borderLeft = '3px solid #0066cc';
+  tocLinks[0].style.paddingLeft = '8px';
+  
+  // 为每个目录链接添加点击事件
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // 移除所有链接的高亮样式
+      tocLinks.forEach(function(l) {
+        l.style.fontWeight = 'normal';
+        l.style.color = '';
+        l.style.borderLeft = '';
+        l.style.paddingLeft = '';
+      });
+      
+      // 为当前点击的链接添加高亮样式
+      this.style.fontWeight = 'bold';
+      this.style.color = '#0066cc';
+      this.style.borderLeft = '3px solid #0066cc';
+      this.style.paddingLeft = '8px';
+    });
+  });
+}
+  
+  // ===== 初始化 =====
+  function init() {
+    buildToc();
+    bindClick();
+    highlightActive();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<style>
+/* 极简样式，可删除 */
+#toc ul { list-style: none; padding-left: 0; }
+#toc li { margin: 5px 0; }
+#toc a { text-decoration: none; color: #333; }
+#toc a:hover { color: #0066cc; }
+</style>
+
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!联系我wangyimail20230608@163.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/" rel="tag">DIY</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Question/" rel="tag">Question</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/issue/" rel="tag">issue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" rel="tag">数据库查询</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/DIY/" style="font-size: 14px;">DIY</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/Question/" style="font-size: 13px;">Question</a> <a href="/tags/issue/" style="font-size: 13px;">issue</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 13px;">学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" style="font-size: 13px;">数据库查询</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a><span class="archive-list-count">15</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="title">离散数学</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-03-05T09:09:03.000Z" itemprop="datePublished">2026-03-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/25/%E5%88%9B%E8%88%9FC3%E5%88%B7%E6%9C%BA/" class="title">创舟C3刷机</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-25T11:56:51.000Z" itemprop="datePublished">2026-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/25/OpenStick%E5%AE%89%E8%A3%85Jellyfin/" class="title">OpenStick安装Jellyfin</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-24T16:06:20.000Z" itemprop="datePublished">2026-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/24/OpenStick-ARM%E8%AE%BE%E5%A4%87%E5%A4%96%E6%8E%A5%E7%A1%AC%E7%9B%98%E7%9B%92%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/" class="title">OpenStick/ARM设备外接硬盘盒完全攻略</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-24T15:19:28.000Z" itemprop="datePublished">2026-02-24</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2026/02/22/%E9%9A%8F%E8%BA%ABwifi%E5%88%B7linux/" class="title">随身wifi刷linux</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-02-22T14:45:13.000Z" itemprop="datePublished">2026-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-创舟C3刷机" class="article article-type-post thisIsAAnchor" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      创舟C3刷机
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2026/02/25/%E5%88%9B%E8%88%9FC3%E5%88%B7%E6%9C%BA/" class="article-date">
+	  <time datetime="2026-02-25T11:56:51.000Z" itemprop="datePublished">2026-02-25</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/02/25/%E5%88%9B%E8%88%9FC3%E5%88%B7%E6%9C%BA/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>a</p>
+<p>今天突然发现创舟C3的AV口后面有个隐藏的按钮，之前苦于没有找到短接口，打算试试这个隐藏按钮</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">测试方案</th>
+<th style="text-align:left">操作步骤</th>
+<th style="text-align:left">预期成功标志</th>
+<th style="text-align:left">如果成功，意味着什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>方案A：测试能否进入FEL模式（线刷）</strong></td>
+<td style="text-align:left">1. 盒子<strong>完全断电</strong>。 2. 用双公头USB线连接盒子和电脑（只连USB，不连电源）。 3. <strong>按住这个隐藏按钮不放</strong>。 4. 保持按住，<strong>给盒子插上12V电源</strong>。 5. 观察电脑设备管理器。</td>
+<td style="text-align:left">电脑出现&quot;未知设备&quot;或&quot;Allwinner USB FEL&quot;。</td>
+<td style="text-align:left">这就是我们之前苦寻的<strong>FEL模式触发按钮</strong>！你可以直接用PhoenixSuit进行线刷。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>方案B：测试能否从U盘启动（卡启动）</strong></td>
+<td style="text-align:left">1. 将写好的Armbian U盘/TF卡插入盒子。 2. 盒子<strong>完全断电</strong>。 3. <strong>按住这个隐藏按钮不放</strong>。 4. 保持按住，<strong>给盒子插上12V电源</strong>。 5. 观察HDMI输出。</td>
+<td style="text-align:left">屏幕出现Linux启动命令行日志。</td>
+<td style="text-align:left">这是<strong>强制从外部介质启动</strong>的按钮！这正是我们上一轮讨论的最理想方案。</td>
+</tr>
+</tbody>
+</table>
+<p>方案A可以！这个隐藏按钮确实是可以进入FEL模式，老贼满我好久，现在试试方案B</p>
+<p>方案B不可以</p>
+<p>接下来进行线刷Armbian</p>
+<h2 id="从零到一h3机顶盒emmc识别全记录含指令"><a class="markdownIt-Anchor" href="#从零到一h3机顶盒emmc识别全记录含指令"></a> <strong>从零到一：H3机顶盒eMMC识别全记录（含指令）</strong></h2>
+<p>这是一个从“完全黑盒”到“成功驱动”的完整调试历程，每一步都踩在点上。</p>
+<hr />
+<h3 id="第一阶段信息摸底搞清楚有什么"><a class="markdownIt-Anchor" href="#第一阶段信息摸底搞清楚有什么"></a> 第一阶段：信息摸底（搞清楚有什么）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">发现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">查看U-Boot日志</td>
+<td style="text-align:left">开机时通过HDMI输出</td>
+<td style="text-align:left">芯片是 <strong>H3</strong>，内存 <strong>1GB</strong>，但 eMMC 没出现</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">拆机找芯片</td>
+<td style="text-align:left">物理查看</td>
+<td style="text-align:left">找到三星 <strong>KLMCG8WEBC-B031</strong>，确认是 eMMC</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">尝试多种Armbian镜像</td>
+<td style="text-align:left"><code>lsblk</code> 检查</td>
+<td style="text-align:left">5.10/6.x 内核都不认 eMMC，3.4.113 内核也认不出</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="第二阶段问题定位为什么认不出"><a class="markdownIt-Anchor" href="#第二阶段问题定位为什么认不出"></a> 第二阶段：问题定位（为什么认不出）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">发现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">检查驱动</td>
+<td style="text-align:left">`lsmod</td>
+<td style="text-align:left">grep mmc<code> </code>lsmod</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">手动加载驱动</td>
+<td style="text-align:left"><code>modprobe sunxi-mmc</code></td>
+<td style="text-align:left">加载成功，但设备没出现</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">查看内核日志</td>
+<td style="text-align:left">`dmesg</td>
+<td style="text-align:left">grep -i mmc<code> </code>dmesg</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">查看设备树状态</td>
+<td style="text-align:left"><code>cat /sys/firmware/devicetree/base/soc/mmc@1c11000/status</code></td>
+<td style="text-align:left"><strong><code>disabled</code></strong>——mmc2 控制器被禁用</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">查看compatible属性</td>
+<td style="text-align:left"><code>cat /sys/firmware/devicetree/base/soc/mmc@1c11000/compatible</code></td>
+<td style="text-align:left"><code>allwinner,sun7i-a20-mmc</code>——设备树把H3的mmc2错误识别成A20的控制器</td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心结论</strong>：设备树文件里，eMMC 所在的控制器被禁用了，而且 compatible 还配错了。</p>
+<hr />
+<h3 id="第三阶段设备树排查找出谁是对的"><a class="markdownIt-Anchor" href="#第三阶段设备树排查找出谁是对的"></a> 第三阶段：设备树排查（找出谁是对的）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">发现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left">安装dtc工具</td>
+<td style="text-align:left"><code>apt update &amp;&amp; apt install device-tree-compiler -y</code></td>
+<td style="text-align:left">（网络问题需要换源）</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left">配置国内源</td>
+<td style="text-align:left">修改 <code>/etc/apt/sources.list</code> 为归档源</td>
+<td style="text-align:left">解决 apt 404 问题</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left">列出所有H3设备树</td>
+<td style="text-align:left"><code>ls /boot/dtb-*/*h3*.dtb</code></td>
+<td style="text-align:left">有 20+ 个 <code>.dtb</code> 文件</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left">反编译检查每个dtb</td>
+<td style="text-align:left">`for dtb in /boot/dtb-5.10.34-sunxi/<em>h3</em>.dtb; do echo “=== $(basename $dtb) ===”; dtc -I dtb -O dts $dtb 2&gt;/dev/null</td>
+<td style="text-align:left">grep -A5 “mmc@1c11000”</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left">检查当前启动脚本</td>
+<td style="text-align:left"><code>cat /boot/boot.cmd</code></td>
+<td style="text-align:left"><code>fdtfile</code> 没指定，用的是默认值</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="第四阶段动手修复手动指定设备树"><a class="markdownIt-Anchor" href="#第四阶段动手修复手动指定设备树"></a> 第四阶段：动手修复（手动指定设备树）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left">备份boot.cmd</td>
+<td style="text-align:left"><code>cp /boot/boot.cmd /boot/boot.cmd.bak-$(date +%Y%m%d-%H%M%S)</code></td>
+<td style="text-align:left">✅ 留了后路</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">编辑boot.cmd</td>
+<td style="text-align:left"><code>nano /boot/boot.cmd</code></td>
+<td style="text-align:left">找到主线内核部分</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left">修改主线内核部分</td>
+<td style="text-align:left">在 <code>load ${devtype} ${devnum} ${fdt_addr_r} ${prefix}dtb/${fdtfile}</code> 前加上： <code>setenv fdtfile &quot;sun8i-h3-orangepi-pc-plus.dtb&quot;</code> <code>echo &quot;Using device tree: ${fdtfile}&quot;</code></td>
+<td style="text-align:left">强制指定PC Plus设备树</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left">重新编译boot.scr</td>
+<td style="text-align:left"><code>mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr</code></td>
+<td style="text-align:left">✅ 成功生成</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left">同步并重启</td>
+<td style="text-align:left"><code>sync &amp;&amp; reboot</code></td>
+<td style="text-align:left">屏幕上打印 <code>Using device tree: sun8i-h3-orangepi-pc-plus.dtb</code></td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left">检查eMMC</td>
+<td style="text-align:left"><code>lsblk</code></td>
+<td style="text-align:left"><strong><code>mmcblk2</code> 出现了！</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="关键转折点"><a class="markdownIt-Anchor" href="#关键转折点"></a> 🔧 <strong>关键转折点</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">问题</th>
+<th style="text-align:left">解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mmc2 被禁用</td>
+<td style="text-align:left">找到 <code>pc-plus.dtb</code>，它把 mmc2 设成了 <code>okay</code></td>
+</tr>
+<tr>
+<td style="text-align:left">启动脚本用的默认 dtb</td>
+<td style="text-align:left">手动在 <code>boot.cmd</code> 里 <strong>强制指定</strong> <code>fdtfile</code></td>
+</tr>
+<tr>
+<td style="text-align:left">不知道哪个 dtb 能用</td>
+<td style="text-align:left">用 <code>dtc</code> 反编译逐个检查，找到唯一正确的那个</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="经验总结"><a class="markdownIt-Anchor" href="#经验总结"></a> 🧠 <strong>经验总结</strong></h3>
+<ol>
+<li><strong>设备树是硬件的说明书</strong>——不对就点不亮</li>
+<li><strong><code>dmesg</code> 和 <code>lsmod</code> 是最好的医生</strong>——先看驱动有没有，再看硬件认不认</li>
+<li><strong>备份是亲爹</strong>——改之前先 <code>cp</code></li>
+<li><strong>FEL 模式是全志芯片的最后防线</strong>——软件搞不定还有硬件后门</li>
+<li><strong>国内源配置很重要</strong>——Debian 10 已 EOL，必须用 <code>archive</code> 路径</li>
+</ol>
+<hr />
+<h2 id="第五阶段转换-boot-分区为-fat32解决-cant-set-block-device"><a class="markdownIt-Anchor" href="#第五阶段转换-boot-分区为-fat32解决-cant-set-block-device"></a> <strong>第五阶段：转换 boot 分区为 FAT32（解决 Can’t set block device）</strong></h2>
+<p><strong>时间范围</strong>：从 eMMC 识别为 <code>mmcblk2</code> 之后，到最终实现从 eMMC 自动启动。</p>
+<p><strong>环境说明</strong>：</p>
+<ul>
+<li>已在 U 盘系统（通过旧 U-Boot 或 FEL 启动）</li>
+<li>eMMC 设备 <code>/dev/mmcblk2</code>，原有分区：<code>mmcblk2p1</code> (boot)、<code>mmcblk2p2</code> (root)</li>
+<li>目标：让 U-Boot 自动从 eMMC 启动，不再依赖 FEL/键盘</li>
+</ul>
+<h3 id="51-备份当前-boot-分区数据"><a class="markdownIt-Anchor" href="#51-备份当前-boot-分区数据"></a> <strong>5.1 备份当前 boot 分区数据</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5.1.1</td>
+<td style="text-align:left">挂载 boot 分区</td>
+<td style="text-align:left"><code>mount /dev/mmcblk2p1 /mnt</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">5.1.2</td>
+<td style="text-align:left">创建备份目录</td>
+<td style="text-align:left"><code>mkdir -p ~/boot_backup</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">5.1.3</td>
+<td style="text-align:left">复制所有文件到备份目录</td>
+<td style="text-align:left"><code>cp -rv /mnt/* ~/boot_backup/</code> <code>cp -rv /mnt/.* ~/boot_backup/ 2&gt;/dev/null</code></td>
+<td style="text-align:left">保留隐藏文件，忽略错误</td>
+</tr>
+<tr>
+<td style="text-align:left">5.1.4</td>
+<td style="text-align:left">卸载 boot 分区</td>
+<td style="text-align:left"><code>umount /mnt</code></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-格式化为-fat32"><a class="markdownIt-Anchor" href="#52-格式化为-fat32"></a> <strong>5.2 格式化为 FAT32</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5.2.1</td>
+<td style="text-align:left">格式化 boot 分区</td>
+<td style="text-align:left"><code>mkfs.vfat -F 32 /dev/mmcblk2p1</code></td>
+<td style="text-align:left">强制使用 FAT32 格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-恢复数据到新格式化的分区"><a class="markdownIt-Anchor" href="#53-恢复数据到新格式化的分区"></a> <strong>5.3 恢复数据到新格式化的分区</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5.3.1</td>
+<td style="text-align:left">重新挂载 boot 分区</td>
+<td style="text-align:left"><code>mount /dev/mmcblk2p1 /mnt</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">5.3.2</td>
+<td style="text-align:left">恢复文件</td>
+<td style="text-align:left"><code>cp -rv ~/boot_backup/* /mnt/</code> <code>cp -rv ~/boot_backup/.* /mnt/ 2&gt;/dev/null</code></td>
+<td style="text-align:left">FAT32 不支持软链接，但内核文件是普通文件，不影响</td>
+</tr>
+<tr>
+<td style="text-align:left">5.3.3</td>
+<td style="text-align:left">查看恢复后的文件</td>
+<td style="text-align:left"><code>ls -la /mnt</code></td>
+<td style="text-align:left">确认 <code>vmlinuz-*</code>、<code>uInitrd-*</code>、<code>dtb-*</code> 存在</td>
+</tr>
+<tr>
+<td style="text-align:left">5.3.4</td>
+<td style="text-align:left">卸载 boot 分区</td>
+<td style="text-align:left"><code>umount /mnt</code></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="第六阶段修复环境变量让-u-boot-记住配置"><a class="markdownIt-Anchor" href="#第六阶段修复环境变量让-u-boot-记住配置"></a> <strong>第六阶段：修复环境变量（让 U-Boot 记住配置）</strong></h2>
+<h3 id="61-发现问题环境变量存到了错误的设备"><a class="markdownIt-Anchor" href="#61-发现问题环境变量存到了错误的设备"></a> <strong>6.1 发现问题：环境变量存到了错误的设备</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明/结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">6.1.1</td>
+<td style="text-align:left">在 U-Boot 命令行设置启动命令</td>
+<td style="text-align:left"><code>setenv bootcmd 'mmc dev 1; mmc rescan; fatload mmc 1:1 0x46000000 /vmlinuz-5.10.34-sunxi; fatload mmc 1:1 0x47000000 /dtb-5.10.34-sunxi/sun8i-h3-orangepi-pc-plus.dtb; fatload mmc 1:1 0x48000000 /uInitrd-5.10.34-sunxi; bootz 0x46000000 0x48000000 0x47000000'</code></td>
+<td style="text-align:left">当前会话有效</td>
+</tr>
+<tr>
+<td style="text-align:left">6.1.2</td>
+<td style="text-align:left">尝试保存环境变量</td>
+<td style="text-align:left"><code>saveenv</code></td>
+<td style="text-align:left">报错：<code>Saving Environment to FAT... MMC: no card present</code> 说明 U-Boot 试图把环境变量存到 SD 卡 (mmc0)</td>
+</tr>
+<tr>
+<td style="text-align:left">6.1.3</td>
+<td style="text-align:left">重启后验证</td>
+<td style="text-align:left"><code>reset</code></td>
+<td style="text-align:left">变量丢失，U-Boot 用默认配置</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="62-在-linux-里用-fw_setenv-写入环境变量"><a class="markdownIt-Anchor" href="#62-在-linux-里用-fw_setenv-写入环境变量"></a> <strong>6.2 在 Linux 里用 fw_setenv 写入环境变量</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明/结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">6.2.1</td>
+<td style="text-align:left">查看 fw_setenv 配置</td>
+<td style="text-align:left"><code>cat /etc/fw_env.config</code></td>
+<td style="text-align:left">显示 <code>/dev/mmcblk0 0x400000 0x20000</code>——指向了错误的设备</td>
+</tr>
+<tr>
+<td style="text-align:left">6.2.2</td>
+<td style="text-align:left">备份原配置</td>
+<td style="text-align:left"><code>cp /etc/fw_env.config /etc/fw_env.config.bak</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">6.2.3</td>
+<td style="text-align:left">修改配置文件</td>
+<td style="text-align:left"><code>nano /etc/fw_env.config</code></td>
+<td style="text-align:left">把 <code>/dev/mmcblk0</code> 改成 <code>/dev/mmcblk2</code></td>
+</tr>
+<tr>
+<td style="text-align:left">6.2.4</td>
+<td style="text-align:left">创建新的环境变量文件</td>
+<td style="text-align:left"><code>cat &gt; ~/uboot-env-clean.txt &lt;&lt; 'EOF'</code> <code>stdout=vidconsole</code> <code>stderr=vidconsole</code> <code>bootcmd=mmc dev 1; mmc rescan; fatload mmc 1:1 0x46000000 /vmlinuz-5.10.34-sunxi; fatload mmc 1:1 0x47000000 /dtb-5.10.34-sunxi/sun8i-h3-orangepi-pc-plus.dtb; fatload mmc 1:1 0x48000000 /uInitrd-5.10.34-sunxi; bootz 0x46000000 0x48000000 0x47000000</code> <code>bootdelay=3</code> <code>EOF</code></td>
+<td style="text-align:left">手动创建干净的环境变量</td>
+</tr>
+<tr>
+<td style="text-align:left">6.2.5</td>
+<td style="text-align:left">写入环境变量</td>
+<td style="text-align:left"><code>fw_setenv -s ~/uboot-env-clean.txt</code></td>
+<td style="text-align:left">成功写入</td>
+</tr>
+<tr>
+<td style="text-align:left">6.2.6</td>
+<td style="text-align:left">验证写入结果</td>
+<td style="text-align:left"><code>fw_printenv stdout</code> <code>fw_printenv stderr</code> <code>fw_printenv bootcmd</code> <code>fw_printenv bootdelay</code></td>
+<td style="text-align:left">显示正确的值</td>
+</tr>
+<tr>
+<td style="text-align:left">6.2.7</td>
+<td style="text-align:left">重启测试</td>
+<td style="text-align:left"><code>reboot</code></td>
+<td style="text-align:left"><strong>HDMI 无输出</strong>——因为环境变量里的 <code>stdout</code> 虽然改成了 <code>vidconsole</code>，但 U-Boot 加载环境变量前已经用了串口</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="63-清空-emmc-环境变量区域让-u-boot-用默认配置"><a class="markdownIt-Anchor" href="#63-清空-emmc-环境变量区域让-u-boot-用默认配置"></a> <strong>6.3 清空 eMMC 环境变量区域（让 U-Boot 用默认配置）</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明/结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">6.3.1</td>
+<td style="text-align:left">重新进入 U 盘系统</td>
+<td style="text-align:left">通过 FEL 或旧 U-Boot 启动</td>
+<td style="text-align:left">确保能在 Linux 里操作 eMMC</td>
+</tr>
+<tr>
+<td style="text-align:left">6.3.2</td>
+<td style="text-align:left">确认 eMMC 设备</td>
+<td style="text-align:left"><code>lsblk</code></td>
+<td style="text-align:left">确认 <code>mmcblk2</code> 存在</td>
+</tr>
+<tr>
+<td style="text-align:left">6.3.3</td>
+<td style="text-align:left">清空环境变量区域</td>
+<td style="text-align:left"><code>dd if=/dev/zero of=/dev/mmcblk2 bs=1M seek=1 count=1 status=progress</code></td>
+<td style="text-align:left">清除 1MB 偏移量处的数据（U-Boot 环境变量通常在此）</td>
+</tr>
+<tr>
+<td style="text-align:left">6.3.4</td>
+<td style="text-align:left">同步并重启</td>
+<td style="text-align:left"><code>sync</code> <code>reboot</code></td>
+<td style="text-align:left">重启后 U-Boot 找不到环境变量，用默认配置，<strong>HDMI 输出恢复</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="第七阶段重新构建-emmc-系统"><a class="markdownIt-Anchor" href="#第七阶段重新构建-emmc-系统"></a> <strong>第七阶段：重新构建 eMMC 系统</strong></h2>
+<h3 id="71-重新格式化-emmc-分区"><a class="markdownIt-Anchor" href="#71-重新格式化-emmc-分区"></a> <strong>7.1 重新格式化 eMMC 分区</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7.1.1</td>
+<td style="text-align:left">卸载可能挂载的分区</td>
+<td style="text-align:left"><code>umount /dev/mmcblk2p1 2&gt;/dev/null</code> <code>umount /dev/mmcblk2p2 2&gt;/dev/null</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.1.2</td>
+<td style="text-align:left">格式化 boot 分区为 FAT32</td>
+<td style="text-align:left"><code>mkfs.vfat -F 32 /dev/mmcblk2p1</code></td>
+<td style="text-align:left"><strong>关键步骤</strong>：确保 U-Boot 能用 <code>fatload</code></td>
+</tr>
+<tr>
+<td style="text-align:left">7.1.3</td>
+<td style="text-align:left">格式化根分区为 ext4</td>
+<td style="text-align:left"><code>mkfs.ext4 /dev/mmcblk2p2</code></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-备份当前-u-盘系统的-boot-文件"><a class="markdownIt-Anchor" href="#72-备份当前-u-盘系统的-boot-文件"></a> <strong>7.2 备份当前 U 盘系统的 boot 文件</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7.2.1</td>
+<td style="text-align:left">创建备份目录</td>
+<td style="text-align:left"><code>mkdir -p ~/boot_backup</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.2.2</td>
+<td style="text-align:left">复制 boot 目录所有文件</td>
+<td style="text-align:left"><code>cp -rv /boot/* ~/boot_backup/</code> <code>cp -rv /boot/.* ~/boot_backup/ 2&gt;/dev/null</code></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-挂载-emmc-分区"><a class="markdownIt-Anchor" href="#73-挂载-emmc-分区"></a> <strong>7.3 挂载 eMMC 分区</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7.3.1</td>
+<td style="text-align:left">创建挂载点</td>
+<td style="text-align:left"><code>mkdir -p /mnt/emmc</code> <code>mkdir -p /mnt/emmc/boot</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.3.2</td>
+<td style="text-align:left">挂载根分区</td>
+<td style="text-align:left"><code>mount /dev/mmcblk2p2 /mnt/emmc</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.3.3</td>
+<td style="text-align:left">挂载 boot 分区</td>
+<td style="text-align:left"><code>mount /dev/mmcblk2p1 /mnt/emmc/boot</code></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="74-从-u-盘同步系统到-emmc"><a class="markdownIt-Anchor" href="#74-从-u-盘同步系统到-emmc"></a> <strong>7.4 从 U 盘同步系统到 eMMC</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7.4.1</td>
+<td style="text-align:left">同步根文件系统</td>
+<td style="text-align:left"><code>rsync -aAXv /* /mnt/emmc --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/boot/*}</code></td>
+<td style="text-align:left">保留权限，排除特殊目录</td>
+</tr>
+<tr>
+<td style="text-align:left">7.4.2</td>
+<td style="text-align:left">同步 boot 目录</td>
+<td style="text-align:left"><code>rsync -aAXv /boot/* /mnt/emmc/boot/</code></td>
+<td style="text-align:left">复制内核、initrd、dtb 等</td>
+</tr>
+</tbody>
+</table>
+<h3 id="75-编写正确的启动脚本"><a class="markdownIt-Anchor" href="#75-编写正确的启动脚本"></a> <strong>7.5 编写正确的启动脚本</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7.5.1</td>
+<td style="text-align:left">进入 eMMC boot 目录</td>
+<td style="text-align:left"><code>cd /mnt/emmc/boot</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.5.2</td>
+<td style="text-align:left">创建新的 boot.cmd</td>
+<td style="text-align:left"><code>cat &gt; boot.cmd &lt;&lt; 'EOF'</code> <code>setenv bootargs console=ttyS0,115200 console=tty0 root=/dev/mmcblk2p2 rootwait</code> <code>mmc dev 1</code> <code>fatload mmc 1:1 0x46000000 /vmlinuz-5.10.34-sunxi</code> <code>fatload mmc 1:1 0x47000000 /dtb-5.10.34-sunxi/sun8i-h3-orangepi-pc-plus.dtb</code> <code>fatload mmc 1:1 0x48000000 /uInitrd-5.10.34-sunxi</code> <code>bootz 0x46000000 0x48000000 0x47000000</code> <code>EOF</code></td>
+<td style="text-align:left">手动编写，不依赖 Armbian 模板</td>
+</tr>
+<tr>
+<td style="text-align:left">7.5.3</td>
+<td style="text-align:left">删除旧的 boot.scr</td>
+<td style="text-align:left"><code>rm -f boot.scr</code></td>
+<td style="text-align:left">确保旧脚本被清除</td>
+</tr>
+<tr>
+<td style="text-align:left">7.5.4</td>
+<td style="text-align:left">生成新的 boot.scr</td>
+<td style="text-align:left"><code>mkimage -C none -A arm -T script -d boot.cmd boot.scr</code></td>
+<td style="text-align:left">生成 U-Boot 可执行的脚本</td>
+</tr>
+<tr>
+<td style="text-align:left">7.5.5</td>
+<td style="text-align:left">查看生成的文件</td>
+<td style="text-align:left"><code>ls -l boot.scr</code></td>
+<td style="text-align:left">大小应为 300-400 字节</td>
+</tr>
+<tr>
+<td style="text-align:left">7.5.6</td>
+<td style="text-align:left">返回根目录</td>
+<td style="text-align:left"><code>cd /</code></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="76-重新写入永久的-u-boot-环境变量"><a class="markdownIt-Anchor" href="#76-重新写入永久的-u-boot-环境变量"></a> <strong>7.6 重新写入永久的 U-Boot 环境变量</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7.6.1</td>
+<td style="text-align:left">确认 fw_env.config 正确</td>
+<td style="text-align:left"><code>cat /etc/fw_env.config</code></td>
+<td style="text-align:left">应指向 <code>/dev/mmcblk2</code></td>
+</tr>
+<tr>
+<td style="text-align:left">7.6.2</td>
+<td style="text-align:left">创建最终的环境变量文件</td>
+<td style="text-align:left"><code>cat &gt; ~/uboot-env-final.txt &lt;&lt; 'EOF'</code> <code>stdout=vidconsole</code> <code>stderr=vidconsole</code> <code>bootcmd=mmc dev 1; mmc rescan; fatload mmc 1:1 0x46000000 /vmlinuz-5.10.34-sunxi; fatload mmc 1:1 0x47000000 /dtb-5.10.34-sunxi/sun8i-h3-orangepi-pc-plus.dtb; fatload mmc 1:1 0x48000000 /uInitrd-5.10.34-sunxi; bootz 0x46000000 0x48000000 0x47000000</code> <code>bootdelay=3</code> <code>EOF</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.6.3</td>
+<td style="text-align:left">写入环境变量</td>
+<td style="text-align:left"><code>fw_setenv -s ~/uboot-env-final.txt</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.6.4</td>
+<td style="text-align:left">验证写入结果</td>
+<td style="text-align:left"><code>fw_printenv stdout</code> <code>fw_printenv stderr</code> <code>fw_printenv bootcmd</code> <code>fw_printenv bootdelay</code></td>
+<td style="text-align:left">所有值应正确显示</td>
+</tr>
+</tbody>
+</table>
+<h3 id="77-卸载并重启"><a class="markdownIt-Anchor" href="#77-卸载并重启"></a> <strong>7.7 卸载并重启</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">完整指令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7.7.1</td>
+<td style="text-align:left">卸载 boot 分区</td>
+<td style="text-align:left"><code>umount /mnt/emmc/boot</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.7.2</td>
+<td style="text-align:left">卸载根分区</td>
+<td style="text-align:left"><code>umount /mnt/emmc</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7.7.3</td>
+<td style="text-align:left">同步并重启</td>
+<td style="text-align:left"><code>sync</code> <code>reboot</code></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附关键文件内容"><a class="markdownIt-Anchor" href="#附关键文件内容"></a> <strong>附：关键文件内容</strong></h2>
+<h3 id="最终版-bootcmd"><a class="markdownIt-Anchor" href="#最终版-bootcmd"></a> <strong>最终版 boot.cmd</strong></h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setenv bootargs console=ttyS0,115200 console=tty0 root=/dev/mmcblk2p2 rootwait</span><br><span class="line">mmc dev 1</span><br><span class="line">fatload mmc 1:1 0x46000000 /vmlinuz-5.10.34-sunxi</span><br><span class="line">fatload mmc 1:1 0x47000000 /dtb-5.10.34-sunxi/sun8i-h3-orangepi-pc-plus.dtb</span><br><span class="line">fatload mmc 1:1 0x48000000 /uInitrd-5.10.34-sunxi</span><br><span class="line">bootz 0x46000000 0x48000000 0x47000000</span><br></pre></td></tr></table></figure>
+<h3 id="最终版-u-boot-环境变量"><a class="markdownIt-Anchor" href="#最终版-u-boot-环境变量"></a> <strong>最终版 U-Boot 环境变量</strong></h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stdout=vidconsole</span><br><span class="line">stderr=vidconsole</span><br><span class="line">bootcmd=mmc dev 1; mmc rescan; fatload mmc 1:1 0x46000000 /vmlinuz-5.10.34-sunxi; fatload mmc 1:1 0x47000000 /dtb-5.10.34-sunxi/sun8i-h3-orangepi-pc-plus.dtb; fatload mmc 1:1 0x48000000 /uInitrd-5.10.34-sunxi; bootz 0x46000000 0x48000000 0x47000000</span><br><span class="line">bootdelay=3</span><br></pre></td></tr></table></figure>
+<h3 id="etcfw_envconfig"><a class="markdownIt-Anchor" href="#etcfw_envconfig"></a> <strong>/etc/fw_env.config</strong></h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/mmcblk2 0x400000 0x20000</span><br></pre></td></tr></table></figure>
+<h3 id="自己编译-u-boot如果找不到现成的"><a class="markdownIt-Anchor" href="#自己编译-u-boot如果找不到现成的"></a> 自己编译 U-Boot（如果找不到现成的）</h3>
+<ol>
+<li>
+<p><strong>在 U 盘系统里安装编译工具</strong>：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install git make gcc-arm-linux-gnueabihf flex bison libssl-dev device-tree-compiler -y</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>下载 U-Boot 源码</strong>：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/mirrors/u-boot.git</span><br><span class="line"><span class="built_in">cd</span> u-boot</span><br><span class="line">git checkout v2024.01  <span class="comment"># 用一个稳定的旧版本</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>配置为 Orange Pi PC Plus</strong>：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理之前的编译（如果是第一次可跳过）</span></span><br><span class="line">make distclean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置为 Orange Pi PC Plus</span></span><br><span class="line">make orangepi_pc_plus_defconfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入配置菜单</span></span><br><span class="line">make menuconfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 4 个线程编译（根据你的 CPU 核心数调整）</span></span><br><span class="line">make CROSS_COMPILE=arm-linux-gnueabihf- ARCH=arm -j4 EXTRA_CFLAGS=<span class="string">&quot;-mcpu=cortex-a7 -mtune=cortex-a7&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>得到 <code>u-boot-sunxi-with-spl.bin</code></strong>，用 FEL 刷入。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <!-- 
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="" title="" target="_blank" rel="external"></a>
+    </li>
+     -->
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/IMOUYO" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.gif" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/IMOUYO" target="_blank"><span class="text-dark">makabaka</span><small class="ml-1x"></small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2026/03/05/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" title="离散数学"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2026/02/25/OpenStick%E5%AE%89%E8%A3%85Jellyfin/" title="OpenStick安装Jellyfin"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+<!-- 测试标记：看这个会不会出现在生成的HTML中 -->
+<!-- PARTIAL_IMAGE_FIXER_START -->
+<script>
+    (function() {
+  // 配置选项
+  const config = {
+    // 需要替换的路径规则
+    rules: [
+      {
+        pattern: '^创舟C3刷机/',           // 匹配以 /images/ 开头的路径
+        replace: ''       // 替换为 /assets/images/
+      },
+      {
+        pattern: '^%E5%88%9B%E8%88%9FC3%E5%88%B7%E6%9C%BA/',   //解决中文问题
+        replace: ''
+      }
+    ],
+    // 排除外部链接
+    excludeExternal: true,
+    // 是否显示调试信息
+    debug: true
+  };
+  
+  // 执行修改
+  function fixImagePaths() {
+    const images = document.getElementsByTagName('img');
+    
+    for (let img of images) {
+      let src = img.getAttribute('src');
+      
+      // 跳过空值
+      if (!src) continue;
+      
+      // 跳过外部链接（如果配置排除）
+      if (config.excludeExternal && src.match(/^(https?:)?\/\//)) continue;
+      
+      let originalSrc = src;
+      
+      // 应用所有替换规则
+      for (let rule of config.rules) {
+        const regex = new RegExp(rule.pattern);
+        if (regex.test(src)) {
+          src = src.replace(regex, rule.replace);
+        }
+      }
+      
+      // 如果路径改变了，更新图片 src
+      if (src !== originalSrc) {
+        img.src = src;
+        if (config.debug) {
+          console.log('✅ 图片路径已修改:', originalSrc, '→', src);
+        }
+      }
+    }
+  }
+  
+  // 在多个时机执行，确保修改生效
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixImagePaths);
+  } else {
+    fixImagePaths();
+  }
+  
+  // 如果是 SPA 或有动态加载的内容，可以监听 DOM 变化
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length) {
+        fixImagePaths();
+      }
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+})();
+</script>
+<!-- PARTIAL_IMAGE_FIXER_END -->
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23li41op8ra6ULwVKH',
+    clientSecret: '8637d8e4da9dee4d4ab44fff1c11f554fe5251f7',
+    repo: 'gitalk-comments',
+    owner: 'IMOUYO',
+    admin: ['IMOUYO'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true'
+  })
+  gitalk.render('comments')
+  </script>
+      
+
+
+
+
+
+
+
+  <script src="/js/toc.js"></script>
+</body>
+</html>
